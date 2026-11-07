@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicStatusPro - Documentation Hub</title>
+    <style>
+        /* 1. Global Reset & Soft Aesthetics */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #F8FAFC;
+            color: #334155;
+            line-height: 1.6;
+        }
+        
+        /* 2. The Main Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 3. The Hero Section (Top) */
+        .hero {
+            text-align: center;
+            padding: 40px 0 40px 0;
+        }
+        h1 {
+            color: #0F172A;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 1.15rem;
+            color: #64748B;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* 4. Documentation Cards Grid (Upgraded from the table) */
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .doc-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #E2E8F0;
+            display: flex;
+            flex-direction: column;
+        }
+        .category-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748B;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .doc-card h3 {
+            color: #0F172A;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        .doc-card p {
+            flex-grow: 1; /* Pushes the button to the bottom evenly */
+            margin-bottom: 20px;
+        }
+        .audience {
+            font-size: 0.9rem;
+            color: #64748B;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .btn-outline {
+            display: inline-block;
+            border: 2px solid #0078D7;
+            color: #0078D7;
+            padding: 8px 16px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            text-align: center;
+            transition: all 0.2s;
+            align-self: flex-start;
+        }
+        .btn-outline:hover {
+            background-color: #0078D7;
+            color: white;
+        }
+
+        /* 5. Technical Overview Section */
+        .tech-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #E2E8F0;
+            margin-bottom: 40px;
+        }
+        .tech-section h2 {
+            color: #0F172A;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #F1F5F9;
+            padding-bottom: 10px;
+        }
+        .tech-section h3 {
+            color: #0078D7;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            margin-top: 25px;
+        }
+        .tech-section ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        .tech-section li {
+            margin-bottom: 8px;
+        }
+        .tech-section a {
+            color: #0078D7;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .tech-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* 6. The Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #E2E8F0;
+        }
+        .footer a {
+            color: #64748B;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .footer a:hover {
+            color: #0078D7;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Hero Section -->
+        <header class="hero">
+            <img src="../logo.png" alt="MicStatusPro Logo" class="logo">
+            <h1>MicStatusPro Documentation</h1>
+            <p class="subtitle">Find setup guides, configuration details, troubleshooting steps, and architectural overviews to help you integrate and manage MicStatusPro seamlessly.</p>
+        </header>
+
+        <!-- Documentation Cards Grid (Replaces the messy HTML table) -->
+        <div class="docs-grid">
+            
+            <div class="doc-card">
+                <div class="category-label">Onboarding</div>
+                <h3>Getting Started</h3>
+                <p>Installation steps, initial configuration, license activation, and quick-start workflow.</p>
+                <a href="getting-started.html" class="btn-outline">View Guide</a>
+            </div>
+
+            <div class="doc-card">
+                <div class="category-label">Support</div>
+                <h3>Troubleshooting</h3>
+                <p>Common error codes, log collection procedures, audio hardware conflict resolution, and FAQ.</p>
+                <a href="troubleshooting.html" class="btn-outline">View Guide</a>
+            </div>
+
+            <div class="doc-card">
+                <div class="category-label">Integration</div>
+                <h3>Beta Features</h3>
+                <p>Deep dive into beta features like App Tracking, and Zoom Sync Mode.</p>
+                <a href="zoom-sync-modes.html" class="btn-outline">View Guide</a>
+            </div>
+
+            <div class="doc-card">
+                <div class="category-label">Technical Notes</div>
+                <h3>Limitations</h3>
+                <p>Known platform boundaries, OS-level permission constraints, and recommended workarounds.</p>
+                <a href="zoom-limitations.html" class="btn-outline">View Guide</a>
+            </div>
+
+        </div>
+
+        <!-- Technical Overview Box -->
+        <div class="tech-section">
+            <h2>Technical Overview & Resources</h2>
+            
+            <h3>System Requirements</h3>
+            <ul>
+                <li><strong>Operating System:</strong> Windows 10/11 (64-bit)</li>
+                <li><strong>Permissions:</strong> Microphone access permission/li>
+            </ul>
+
+            <h3>Quick Reference Links</h3>
+            <ul>
+                <li>Need help with deployment? Check the <a href="getting-started.html">Getting Started Guide</a>.</li>
+                <li>Experiencing Zoom state mismatch issues? Review <a href="zoom-sync-modes.html">Zoom Sync Modes</a> or troubleshoot via <a href="zoom-limitations.html">Zoom Limitations</a>.</li>
+                <li>Resolving unexpected behavior? Follow our step-by-step <a href="troubleshooting.html">Troubleshooting Guide</a>.</li>
+            </ul>
+        </div>
+
+        <!-- Footer / Legal Links -->
+        <footer class="footer">
+            <a href="../index.html">Back to Home</a>
+            <a href="../privacy.html">Privacy Policy</a>
+            <a href="../eula.html">End User License Agreement</a>
+        </footer>
+
+    </div>
+
+</body>
+</html>
