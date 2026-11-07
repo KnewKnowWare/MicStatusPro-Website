@@ -1,1 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting Guide - MicStatusPro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* 1. Global Reset & Soft Aesthetics */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #F8FAFC;
+            color: #334155;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
+        a {
+            color: #0078D7;
+            text-decoration: none;
+            transition: color 0.15s ease-in-out;
+        }
+
+        a:hover {
+            color: #005A9E;
+        }
+
+        /* 2. The Main Container */
+        .app-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            gap: 32px;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* 3. Sticky Sidebar Navigation */
+        .sidebar {
+            width: 260px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-nav {
+            position: sticky;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 24px 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #E2E8F0;
+        }
+
+        .sidebar-nav h3 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #94A3B8;
+            margin-bottom: 12px;
+            padding-left: 12px;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 4px;
+        }
+
+        .sidebar-nav a {
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: #334155;
+            font-weight: 500;
+            font-size: 14px;
+            scroll-behavior: smooth;
+        }
+
+        .sidebar-nav a:hover {
+            color: #0078D7;
+            background-color: #F1F5F9;
+        }
+
+        /* 4. Main Content Area */
+        .main-content {
+            flex: 1;
+            min-width: 0; 
+        }
+
+        /* 5. Soft SaaS Section Cards */
+        .content-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #E2E8F0;
+        }
+        
+        /* Specific override for the hero image layout */
+        .content-card.hero-card {
+            text-align: center;
+        }
+        
+        .content-card.hero-card .logo {
+            max-width: 120px;
+            margin: 0 auto 20px auto;
+            display: block;
+        }
+
+        .content-card h1 {
+            font-size: 24px;
+            color: #0F172A;
+            margin-bottom: 12px;
+        }
+
+        .content-card h2 {
+            font-size: 18px;
+            color: #0F172A;
+            margin-top: 16px;
+            margin-bottom: 12px;
+        }
+
+        .content-card p {
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .content-card ul, 
+        .content-card ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        .content-card li {
+            margin-bottom: 6px;
+        }
+
+        /* 6. Footer Styles */
+        .app-footer {
+            background: #FFFFFF;
+            border-top: 1px solid #E2E8F0;
+            padding: 24px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .app-footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .app-footer a {
+            font-size: 14px;
+            color: #64748B;
+        }
+
+        .app-footer a:hover {
+            color: #0078D7;
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Account for sticky header offset when scrolling to anchors */
+        section {
+            scroll-margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="app-container">
+        
+        <!-- Navigation Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <h3>Troubleshooting</h3>
+                <ul>
+                    <li><a href="#welcome">Overview</a></li>
+                    <li><a href="#border-issues">Border Not Showing</a></li>
+                    <li><a href="#hotkey-issues">Hotkeys Not Working</a></li>
+                    <li><a href="#zoom-issues">Zoom Sync Issues</a></li>
+                    <li><a href="#support">Get Support</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Cards -->
+        <main class="main-content">
+            
+            <section id="welcome" class="content-card hero-card">
+                <img src="../logo.png" alt="MicStatusPro Logo" class="logo">
+                <h1>Troubleshooting Guide</h1>
+                <p>This guide provides instructions for diagnosing and resolving common technical issues encountered while using MicStatusPro.</p>
+            </section>
+
+            <section id="border-issues" class="content-card">
+                <h2>Border Not Showing</h2>
+                <p>If the colored border isn't appearing on your screen:</p>
+                <ul>
+                    <li><strong>Check Settings:</strong> Open the system tray menu and ensure "Show Border when Muted" or "Show Border when Unmuted" is actually checked.</li>
+                    <li><strong>Check Active Microphone:</strong> Ensure MicStatusPro is monitoring the correct microphone. Open settings and check the "Active Microphone" dropdown.</li>
+                    <li><strong>Multi-Monitor Settings:</strong> If using multiple screens, check your Premium Visuals tab to ensure the border is set to display on the correct active monitor.</li>
+                </ul>
+            </section>
+
+            <section id="hotkey-issues" class="content-card">
+                <h2>Hotkeys Not Working</h2>
+                <p>If your global toggle (CTRL + SHIFT + M) or Push-To-Talk keys are failing:</p>
+                <ul>
+                    <li><strong>Feature Enabled:</strong> Verify the "Enable Global Toggle" or "Enable Push-To-Talk Mode" checkboxes are selected in the Premium Features tab.</li>
+                    <li><strong>Key Conflicts:</strong> Another application may be overriding the shortcut. Try changing the hotkey to a different combination.</li>
+                    <li><strong>Run as Administrator:</strong> Some full-screen games or elevated applications block keystrokes from background apps. Try running MicStatusPro as an Administrator.</li>
+                </ul>
+            </section>
+
+            <section id="zoom-issues" class="content-card">
+                <h2>Zoom Sync Issues</h2>
+                <p>If MicStatusPro is not correctly syncing with Zoom's mute status:</p>
+                <ul>
+                    <li><strong>Enable Zoom Shortcuts:</strong> In Zoom Settings > Keyboard Shortcuts, ensure "Enable Global Shortcut" is checked for "Mute/Unmute My Audio".</li>
+                    <li><strong>Language Settings:</strong> MicStatusPro relies on English interface elements for some advanced syncing. Check your Zoom language settings.</li>
+                    <li><strong>Sync Mode:</strong> Review the <a href="zoom-sync-modes.html">Zoom Sync Modes guide</a> to ensure you have the correct mode selected for your workflow.</li>
+                </ul>
+            </section>
+
+            <section id="support" class="content-card">
+                <h2>How to Get Support</h2>
+                <p>If issues persist after reviewing this guide, please reach out to our technical support team for further assistance.</p>
+                <p><strong>Email:</strong> <a href="mailto:contact@micstatuspro.com?subject=Technical Support Request">contact@micstatuspro.com</a></p>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="app-footer">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../eula.html">EULA</a></li>
+            <li><a href="documentation.html">Documentation Hub</a></li>
+        </ul>
+    </footer>
+
+</body>
+</html>
