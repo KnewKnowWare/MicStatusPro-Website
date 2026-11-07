@@ -206,9 +206,10 @@
                 <ul>
                     <li><a href="#overview">Overview</a></li>
                     <li><a href="#hardware-vs-app">1. Hardware vs. App</a></li>
-                    <li><a href="#one-sided">2. One-Sided Zoom</a></li>
-                    <li><a href="#two-way-sync">3. Two-Way Sync</a></li>
+                    <li><a href="#one-sided">2. How Zoom Mute Works</a></li>
+                    <li><a href="#two-way-sync">3. How MicStatusPro Keeps Zoom in Sync</a></li>
                     <li><a href="#limitations">4. Sync Limitations</a></li>
+                    <li><a href="#important-note">Important note</a></li>                    
                 </ul>
             </nav>
         </aside>
@@ -218,77 +219,85 @@
             
             <section id="overview" class="content-card hero-card">
                 <img src="../logo.png" alt="MicStatusPro Logo" class="logo">
-                <h1>How Zoom Sync Works (and Its Limitations)</h1>
-                <p>A simple guide to understanding how MicStatusPro talks to Zoom, why Zoom acts a little strange, and what you need to know to keep your microphone fully secure.</p>
+                <h1>Understanding Zoom Sync Mode and Its Limitations</h1>
+                <p class="subtitle">Learn how MicStatusPro keeps your microphone status synchronized with Zoom, along with the limitations imposed by Zoom's platform. </p>
             </section>
-
+            <section class="content-card hero-card">
+                <p ><strong>In short:</strong> MicStatusPro controls your computer's microphone, while Zoom Sync Mode keeps Zoom's mute button aligned with that microphone status.</p>
+            </section>
+            </section>
             <section id="hardware-vs-app" class="content-card">
                 <h2>1. Two Ways to Mute: Hardware vs. App</h2>
-                <p>Think of your microphone like a physical water faucet, and Zoom like a bucket catching the water.</p>
+                <p>Think of your microphone as a water faucet and Zoom as a bucket underneath it. The faucet controls whether water flows at all, while the bucket only controls what Zoom receives.</p>
                 <ul>
                     <li><strong>OS-Level Mute (Hardware Cut):</strong> This is what <strong>MicStatusPro</strong> does. It shuts off the main water valve at the wall (your computer's operating system). When this is muted, <em>no app on your computer</em> can hear anything, no matter what.</li>
-                    <li><strong>App-Level Mute (Software Filter):</strong> This is what <strong>Zoom</strong> does. It leaves the main valve turned on, but puts a lid over its own bucket. Zoom promises not to listen, but your microphone is still actively powered and sending sound to your computer.</li>
+                    <li><strong>App-Level Mute (Software Filter):</strong> This is what <strong>Zoom</strong> does. It leaves the main valve turned on, but stops Zoom from collecting the water. Zoom mutes audio within the Zoom application, but your microphone remains active at the operating system level.</li>
                 </ul>
-                <p>For true privacy, turning off the main valve (OS-level mute) is always safer than trusting an app to put a lid on its bucket.</p>
+                <p>For maximum privacy, OS-level muting provides an additional layer of protection because it disables microphone input for all applications.</p>
             </section>
 
             <section id="one-sided" class="content-card">
-                <h2>2. Why Zoom is a Bit One-Sided</h2>
-                <p>Zoom handles muting in a slightly dynamic way:</p>
+                <h2>2. How Zoom Mute Works</h2>
+                <p>Zoom handles muting differently than operating-system-level mute:</p>
                 <table>
                     <thead>
                         <tr>
-                            <th>Action in Zoom</th>
-                            <th>What Zoom Actually Does</th>
-                            <th>Hardware Status</th>
+                            <th>Zoom Action</th>
+                            <th>Zoom Behavior</th>
+                            <th>Hardware Microphone Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Unmuting Zoom</td>
                             <td>Opens the main computer mic AND removes its app lid.</td>
-                            <td>HOT (Listening)</td>
+                            <td>Active</td>
                         </tr>
                         <tr>
                             <td>Muting Zoom</td>
                             <td>Puts its app on mute but leaves the main computer mic on.</td>
-                            <td>HOT (Listening)</td>
+                            <td>Still Active</td>
                         </tr>
                     </tbody>
                 </table>
-                <p>Because Zoom leaves your computer's main microphone active even when you click "Mute" inside Zoom, other apps could potentially still hear you.</p>
+                <p>When Zoom is muted, the Zoom application stops transmitting audio, but the microphone remains active at the operating system level.</p>
             </section>
 
             <section id="two-way-sync" class="content-card">
-                <h2>3. How MicStatusPro Fixes This ("Two-Way Sync")</h2>
-                <p>To keep you completely safe, MicStatusPro constantly watches Zoom to make sure both levels of mute stay in agreement.</p>
+                <h2>3. How MicStatusPro Keeps Zoom in Synch</h2>
+                <p>To keep microphone status synchronized, MicStatusPro continuously monitors Zoom and keeps both mute states aligned.</p>
                 <p>When you mute or unmute using MicStatusPro:</p>
                 <ol>
                     <li>It instantly cuts or restores your hardware microphone (the main valve).</li>
-                    <li>It quickly presses the keyboard shortcut (<code style="color:#188038; font-family:'Roboto Mono',monospace;">Alt+A</code>) or clicks Zoom's button automatically to force Zoom's button to match.</li>
+                    <li>It automatically sends the Zoom mute shortcut (<code style="color:#188038; font-family:'Roboto Mono',monospace;">Alt+A</code>) or updates Zoom's mute button so that both applications remain synchronized.</li>
                 </ol>
-                <p>This gives you seamless, full-hardware privacy while keeping the little microphone icon inside Zoom showing the correct state to your meeting attendees.</p>
+                <p>This provides operating-system-level microphone control while keeping Zoom's microphone indicator synchronized with your actual microphone status.</p>
             </section>
 
             <section id="limitations" class="content-card">
-                <h2>4. Things That Can Limit Zoom Sync</h2>
-                <p>Because Zoom does not provide an official, foolproof way for outside apps to control it, MicStatusPro has to "look" at Zoom's screen and press buttons on your behalf. This creates a few natural limitations to keep in mind:</p>
+                <h2>4. Known Zoom Sync Limitations</h2>
+                <p>Because Zoom does not provide an official method for third-party applications to directly control its mute state, MicStatusPro has to "look" at Zoom's screen and press buttons on your behalf. This creates a few natural limitations to keep in mind:</p>
                 
-                <h3>UI & Language Changes</h3>
+                <h3>Zoom Interface & Language Limitations</h3>
                 <ul>
-                    <li><strong>Interface Updates:</strong> If Zoom updates its app and completely changes how its buttons look or where they are placed, MicStatusPro might temporarily lose track of the button until we update our app.</li>
-                    <li><strong>Language Settings:</strong> MicStatusPro looks for specific text and button visual cues. If your Zoom app is set to a language other than English, visual detection may not work as expected.</li>
+                    <li><strong>Interface Updates:</strong> If Zoom significantly changes its interface, MicStatusPro may temporarily be unable to locate Zoom's mute controls until a compatibility update is released.</li>
+                    <li><strong>Language Settings:</strong> MicStatusPro relies on specific button text and visual elements to identify Zoom controls. If your Zoom app is set to a language other than English, visual detection may not work as expected.</li>
                 </ul>
 
                 <h3>Required Zoom Settings</h3>
-                <p>For automatic syncing to work reliably, ensure the following setting is turned on inside Zoom:</p>
+                <p>For reliable synchronization, verify that the following Zoom setting is enabled:</p>
                 <ol>
                     <li>Go to <strong>Zoom Settings</strong> &gt; <strong>Keyboard Shortcuts</strong>.</li>
                     <li>Find the shortcut for <strong>Mute/Unmute My Audio</strong> (<code style="color:#188038; font-family:'Roboto Mono',monospace;">Alt+A</code> on Windows, <code style="color:#188038; font-family:'Roboto Mono',monospace;">Cmd+Shift+A</code> on Mac).</li>
                     <li>Make sure the checkbox for <strong>"Enable Global Shortcut"</strong> is checked. Without this, Zoom ignores mute commands when it isn't the active window on your screen.</li>
                 </ol>
+                <p><strong>Tip:</strong> Test Zoom Sync Mode by joining a meeting and muting your microphone with MicStatusPro. Both MicStatusPro and Zoom should immediately show the same mute status. If both indicators change together, Zoom Sync Mode has been configured correctly.</p>
             </section>
-
+            <section id="important-note" class="content-card">
+                <h2>Important Note:</h2>
+                <p>Zoom Sync Mode requires Zoom's <strong>Enable Global Shortcut</strong> option to be turned on. Without this setting, MicStatusPro can still control your microphone, but Zoom's mute indicator may not stay synchronized.</p>
+            </section>
+                
         </main>
     </div>
 
