@@ -5,77 +5,191 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MicStatusPro</title>
     <style>
+        /* 1. Global Reset & Soft Aesthetics */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
+            /* Using a system font stack guarantees it looks native and crisp on every device */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            text-align: center;
-            padding: 60px 20px;
-            color: #333;
-            max-width: 800px;
+            background-color: #F8FAFC; /* Soft, slightly cool off-white */
+            color: #334155; /* Slate gray instead of harsh black */
+            line-height: 1.6;
+        }
+        
+        /* 2. The Main Container */
+        .container {
+            max-width: 900px;
             margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 3. The Hero Section (Top) */
+        .hero {
+            text-align: center;
+            padding: 60px 0 40px 0;
         }
         .logo {
-            max-width: 150px; /* Adjust this number to make your logo larger or smaller */
-            height: auto;
+            max-width: 120px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #0F172A;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
             margin-bottom: 10px;
         }
-        .content {
-            text-align: left;
-            margin-top: 40px;
-            line-height: 1.6;
-            font-size: 16px;
+        .subtitle {
+            font-size: 1.25rem;
+            color: #64748B;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
         }
-        h1 { color: #111; margin-bottom: 5px;}
-        h2 { color: #222; margin-top: 30px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .footer-links {
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #eaeaea;
-        }
-        a {
+
+        /* 4. The Call to Action Button */
+        .btn-primary {
             display: inline-block;
-            margin: 15px 20px;
-            color: #0078D7;
-            text-decoration: none;
+            background-color: #0078D7; /* Microsoft Blue to match your C# UI */
+            color: white;
+            padding: 14px 32px;
+            font-size: 1.1rem;
             font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 4px 6px -1px rgba(0, 120, 215, 0.2);
         }
-        a:hover { text-decoration: underline; }
+        .btn-primary:hover {
+            background-color: #005A9E;
+            transform: translateY(-2px);
+        }
+
+        /* 5. The Pitch (Why MicStatusPro) */
+        .intro-pitch {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+        }
+
+        /* 6. Feature Cards Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #E2E8F0;
+        }
+        .feature-card h3 {
+            color: #0F172A;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        /* Adding a little blue dot to simulate an icon */
+        .feature-card h3::before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: #0078D7;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        /* 7. The Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 40px;
+            border-top: 1px solid #E2E8F0;
+        }
+        .footer a {
+            color: #64748B;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .footer a:hover {
+            color: #0078D7;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Logo Image -->
-    <img src="logo.png" alt="MicStatusPro Logo" class="logo">
-
-    <h1>MicStatusPro</h1>
-    <p>The visual hardware status indicator for your microphone.</p>
-
-    <div class="content">
-        <p>Say goodbye to the "Am I muted?" panic! MicStatusPro is the ultimate visual safety net for remote workers, streamers, and online educators. By communicating directly with your Windows hardware, MicStatusPro places a sleek, click-through colored border around your screen to give you instant, unmistakable visual feedback on your microphone's true status. Never talk for five minutes on mute again, and never worry about a hot-mic accident when you think you're safe.</p>
+    <div class="container">
         
-        <h2>Why MicStatusPro?</h2>
-        <ul>
-            <li><strong>The Standard Version:</strong> Gives you the core visual border. If the border is red, your Windows hardware is physically cut off. You are 100% safe.</li>
-            <li><strong>Upgrade to Pro:</strong> Unlocks the ultimate power-user toolkit, including the floating Text Overlay, Global Push-To-Talk, multi-monitor support, and exclusive access to our beta Insider features.</li>
-        </ul>
+        <!-- Hero Section -->
+        <header class="hero">
+            <img src="logo.png" alt="MicStatusPro Logo" class="logo">
+            <h1>MicStatusPro</h1>
+            <p class="subtitle">The visual hardware status indicator for your microphone.</p>
+            
+            <!-- The Pitch -->
+            <div class="intro-pitch">
+                <p><b>Say goodbye to the <i>"Am I muted?"</i> panic!</b> MicStatusPro is the ultimate visual safety net for remote workers, streamers, and online educators. By communicating directly with your Windows hardware, it places a sleek, click-through colored border around your screen to give you instant, unmistakable visual feedback on your microphone's true status.</p>
+            </div>
+            <!-- Email Contact Button -->
+            <a href="mailto:contact@micstatuspro.com?subject=I'd like more information" class="btn-primary">Contact for more information</a>
+        </header>
 
-        <h2>Features:</h2>
-        <ul>
-            <li><strong>Visual Confidence:</strong> A transparent, click-through screen border instantly tells you if your mic is live or muted.</li>
-            <li><strong>Pro: Push-To-Talk (PTT):</strong> Turn any keyboard key into a hardware-level walkie-talkie button.</li>
-            <li><strong>Pro: Global Hotkeys:</strong> Toggle your mute status from anywhere, even if your meeting app is minimized.</li>
-            <li><strong>Pro: Multi-Monitor Matrix:</strong> The border perfectly duplicates across all your active screens and seamlessly adapts when you dock or undock your laptop.</li>
-            <li><strong>Pro: Custom Color Engine:</strong> Match the overlay to your brand or personal aesthetic with full hex-code color selection.</li>
-            <li><strong>Pro: Floating Text Widget:</strong> Prefer text? Swap the border for a draggable, transparent overlay that explicitly reads "Mic Muted" or "Mic Active."</li>
-            <li><strong>Privacy First:</strong> MicStatusPro operates entirely locally on your machine. We do not collect, listen to, or transmit your audio data.</li>
-        </ul>
-    </div>
+        <!-- Features Grid -->
+        <div class="features-grid">
+            
+            <div class="feature-card">
+                <h3>Visual Confidence</h3>
+                <p>A transparent, click-through screen border instantly tells you if your mic is live or muted. If the border is red, your Windows hardware is physically cut off. You are 100% safe.</p>
+            </div>
 
-    <!-- Legal Links -->
-    <div class="footer-links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="eula.html">End User License Agreement</a>
+            <div class="feature-card">
+                <h3>Global Hotkeys</h3>
+                <p>Toggle your mute status from anywhere, even if your meeting app is minimized. Instantly mute or unmute without scrambling to find the right window.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Push-To-Talk (PTT)</h3>
+                <p>Turn any keyboard key into a hardware-level walkie-talkie button. Hold your designated action key down to speak, and instantly cut your mic when you release it.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Multi-Monitor Matrix</h3>
+                <p>The border perfectly duplicates across all your active screens and seamlessly adapts when you dock or undock your laptop.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Custom Color Engine</h3>
+                <p>Match the overlay to your brand or personal aesthetic with full hex-code color selection using the native Windows Color Picker.</p>
+            </div>
+            <div class="feature-card">
+
+                <h3>Colorblind Support</h3>
+                <p>Colors might not work for you, so we built robust colorblind support. We offer distinct ASCII symbols in the border and an alternate System Tray icon so everyone can benefit.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Floating Text Widget</h3>
+                <p>Prefer text? Swap the border for a draggable, transparent overlay that explicitly reads "Mic Muted" or "Mic Active."</p>
+            </div>
+            <div class="feature-card">
+                <h3>Privacy First</h3>
+                <p>MicStatusPro operates entirely locally on your machine. We do not collect, listen to, or transmit your audio data.</p>
+            </div>
+
+        </div>
+
+        <!-- Footer / Legal Links -->
+        <footer class="footer">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="eula.html">End User License Agreement</a>
+            <a href="docs/documentation.html">Help & Guides</a>
+        </footer>
+
     </div>
 
 </body>
