@@ -4,135 +4,303 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MicStatusPro - Help Document - Zoom Limitations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* 1. Global Reset & Soft Aesthetics */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #F8FAFC;
+            color: #334155;
             line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        h1 { color: #111; }
-        h2 { color: #222; margin-top: 30px; }
-        ul { margin-bottom: 20px; }
-        p { margin-bottom: 15px; }
+
+        a {
+            color: #0078D7;
+            text-decoration: none;
+            transition: color 0.15s ease-in-out;
+        }
+
+        a:hover {
+            color: #005A9E;
+        }
+
+        /* 2. The Main Container */
+        .app-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            gap: 32px;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* 3. Sticky Sidebar Navigation */
+        .sidebar {
+            width: 260px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-nav {
+            position: sticky;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 24px 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #E2E8F0;
+        }
+
+        .sidebar-nav h3 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #94A3B8;
+            margin-bottom: 12px;
+            padding-left: 12px;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 4px;
+        }
+
+        .sidebar-nav a {
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: #334155;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .sidebar-nav a:hover {
+            color: #0078D7;
+            background-color: #F1F5F9;
+        }
+
+        /* 4. Main Content Area */
+        .main-content {
+            flex: 1;
+            min-width: 0; 
+        }
+
+        /* 5. Soft SaaS Section Cards */
+        .content-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #E2E8F0;
+        }
+        
+        .content-card.hero-card {
+            text-align: center;
+        }
+        
+        .content-card.hero-card .logo {
+            max-width: 120px;
+            margin: 0 auto 20px auto;
+            display: block;
+        }
+
+        .content-card h1 {
+            font-size: 24px;
+            color: #0F172A;
+            margin-bottom: 12px;
+        }
+
+        .content-card h2 {
+            font-size: 18px;
+            color: #0F172A;
+            margin-top: 16px;
+            margin-bottom: 12px;
+        }
+
+        .content-card p {
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .content-card ul, 
+        .content-card ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        .content-card li {
+            margin-bottom: 6px;
+        }
+
+        /* Table Styling inside Cards */
+        .content-card table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+
+        .content-card th, .content-card td {
+            padding: 12px;
+            border: 1px solid #E2E8F0;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .content-card th {
+            background-color: #F1F5F9;
+            color: #0F172A;
+        }
+
+        /* 6. Footer Styles */
+        .app-footer {
+            background: #FFFFFF;
+            border-top: 1px solid #E2E8F0;
+            padding: 24px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .app-footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .app-footer a {
+            font-size: 14px;
+            color: #64748B;
+        }
+
+        .app-footer a:hover {
+            color: #0078D7;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section {
+            scroll-margin-top: 40px;
+        }
     </style>
 </head>
 <body>
+    
+    <div class="app-container">
+        
+        <!-- Navigation Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <h3>Zoom Limitations</h3>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#hardware-vs-app">1. Hardware vs. App</a></li>
+                    <li><a href="#one-sided">2. One-Sided Zoom</a></li>
+                    <li><a href="#two-way-sync">3. Two-Way Sync</a></li>
+                    <li><a href="#limitations">4. Sync Limitations</a></li>
+                </ul>
+            </nav>
+        </aside>
 
-<p><strong><span style="color:#111827;font-size:22pt;font-family:Inter,sans-serif;">How Zoom Sync Works (and Its Limitations)</span></strong></p>
-<p><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">A simple guide to understanding how MicStatusPro talks to Zoom, why Zoom acts a little strange, and what you need to know to keep your microphone fully secure.</span></p>
-<p><br></p>
-<hr>
-<p><strong><span style="color:#1f2937;font-size:15pt;font-family:Inter,sans-serif;">1. Two Ways to Mute: Hardware vs. App</span></strong></p>
-<p><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">Think of your microphone like a physical water faucet, and Zoom like a bucket catching the water.</span></p>
-<ul>
-    <li style="list-style-type:disc;font-size:11pt;font-family:Arial,sans-serif;">
-        <p role="presentation"><strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">OS-Level Mute (Hardware Cut):</span></strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">&nbsp;This is what&nbsp;</span><strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">MicStatusPro</span></strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">&nbsp;does. It shuts off the main water valve at the wall (your computer&apos;s operating system). When this is muted,&nbsp;</span><em><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">no app on your computer</span></em><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">&nbsp;can hear anything, no matter what.</span></p>
-    </li>
-    <li style="list-style-type:disc;font-size:11pt;font-family:Arial,sans-serif;">
-        <p role="presentation"><strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">App-Level Mute (Software Filter):</span></strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">&nbsp;This is what&nbsp;</span><strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">Zoom</span></strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">&nbsp;does. It leaves the main valve turned on, but puts a lid over its own bucket. Zoom promises not to listen, but your microphone is still actively powered and sending sound to your computer.</span></p>
-    </li>
-</ul>
-<p><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">For true privacy, turning off the main valve (OS-level mute) is always safer than trusting an app to put a lid on its bucket.</span></p>
-<p><br></p>
-<hr>
-<p><strong><span style="color:#1f2937;font-size:15pt;font-family:Inter,sans-serif;">2. Why Zoom is a Bit One-Sided</span></strong></p>
-<p><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">Zoom handles muting in a slightly dynamic way:</span></p>
-<div align="left">
-    <table style="border-width: medium; border-style: none; border-color: currentcolor; border-image: none; border-collapse: collapse; width: 100%;">
-        <colgroup>
-            <col width="233">
-        </colgroup>
-        <colgroup>
-            <col width="233">
-        </colgroup>
-        <colgroup>
-            <col width="233">
-        </colgroup>
-        <thead>
-            <tr>
-                <th style="color:#f9fafb;background-color:#f9fafb;border-top:solid #e5e7eb 1pt;border-bottom:solid #f3f4f6 1pt;" scope="col">
-                    <p><strong><span style="color:#374151;font-size:10pt;font-family:Inter,sans-serif;">Action in Zoom</span></strong></p>
-                </th>
-                <th style="color:#f9fafb;background-color:#f9fafb;border-top:solid #e5e7eb 1pt;border-bottom:solid #f3f4f6 1pt;" scope="col">
-                    <p><strong><span style="color:#374151;font-size:10pt;font-family:Inter,sans-serif;">What Zoom Actually Does</span></strong></p>
-                </th>
-                <th style="color:#f9fafb;background-color:#f9fafb;border-top:solid #e5e7eb 1pt;border-bottom:solid #f3f4f6 1pt;" scope="col">
-                    <p><strong><span style="color:#374151;font-size:10pt;font-family:Inter,sans-serif;">Hardware Status</span></strong></p>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="border-top:solid #f3f4f6 1pt;border-bottom:solid #f3f4f6 1pt;">
-                    <p><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">Unmuting Zoom</span></p>
-                </td>
-                <td style="border-top:solid #f3f4f6 1pt;border-bottom:solid #f3f4f6 1pt;">
-                    <p><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">Opens the main computer mic AND removes its app lid.</span></p>
-                </td>
-                <td style="border-top:solid #f3f4f6 1pt;border-bottom:solid #f3f4f6 1pt;">
-                    <p><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">HOT (Listening)</span></p>
-                </td>
-            </tr>
-            <tr>
-                <td style="border-top:solid #f3f4f6 1pt;border-bottom:solid #e5e7eb 1pt;">
-                    <p><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">Muting Zoom</span></p>
-                </td>
-                <td style="border-top:solid #f3f4f6 1pt;border-bottom:solid #e5e7eb 1pt;">
-                    <p><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">Puts its app on mute but leaves the main computer mic on.</span></p>
-                </td>
-                <td style="border-top:solid #f3f4f6 1pt;border-bottom:solid #e5e7eb 1pt;">
-                    <p><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">HOT (Listening)</span></p>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<p><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">Because Zoom leaves your computer&apos;s main microphone active even when you click &quot;Mute&quot; inside Zoom, other apps could potentially still hear you.</span></p>
-<p><br></p>
-<hr>
-<p><strong><span style="color:#1f2937;font-size:15pt;font-family:Inter,sans-serif;">3. How MicStatusPro Fixes This (&quot;Two-Way Sync&quot;)</span></strong></p>
-<p><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">To keep you completely safe, MicStatusPro constantly watches Zoom to make sure both levels of mute stay in agreement.</span></p>
-<p><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">When you mute or unmute using MicStatusPro:</span></p>
-<ol>
-    <li style="list-style-type:decimal;font-size:11pt;font-family:Arial,sans-serif;">
-        <p role="presentation"><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">It instantly cuts or restores your hardware microphone (the main valve).</span></p>
-    </li>
-    <li style="list-style-type:decimal;font-size:11pt;font-family:Arial,sans-serif;">
-        <p role="presentation"><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">It quickly press the keyboard shortcut (</span><span style="color:#188038;font-size:11pt;font-family:'Roboto Mono',monospace;">Alt+A</span><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">) or clicks Zoom&apos;s button automatically to force Zoom&apos;s button to match.</span></p>
-    </li>
-</ol>
-<p><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">This gives you seamless, full-hardware privacy while keeping the little microphone icon inside Zoom showing the correct state to your meeting attendees.</span></p>
-<p><br></p>
-<hr>
-<p><strong><span style="color:#1f2937;font-size:15pt;font-family:Inter,sans-serif;">4. Things That Can Limit Zoom Sync</span></strong></p>
-<p><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">Because Zoom does not provide an official, foolproof way for outside apps to control it, MicStatusPro has to &quot;look&quot; at Zoom&apos;s screen and press buttons on your behalf. This creates a few natural limitations to keep in mind:</span></p>
-<h2><strong><span style="color:#1f2937;font-size:12pt;font-family:Inter,sans-serif;">UI &amp; Language Changes</span></strong></h2>
-<ul>
-    <li style="list-style-type:disc;font-size:11pt;font-family:Arial,sans-serif;">
-        <p role="presentation"><strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">Interface Updates:</span></strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">&nbsp;If Zoom updates its app and completely changes how its buttons look or where they are placed, MicStatusPro might temporarily lose track of the button until we update our app.</span></p>
-    </li>
-    <li style="list-style-type:disc;font-size:11pt;font-family:Arial,sans-serif;">
-        <p role="presentation"><strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">Language Settings:</span></strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">&nbsp;MicStatusPro looks for specific text and button visual cues. If your Zoom app is set to a language other than English, visual detection may not work as expected.</span></p>
-    </li>
-</ul>
-<h2><strong><span style="color:#1f2937;font-size:12pt;font-family:Inter,sans-serif;">Required Zoom Settings</span></strong></h2>
-<p><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">For automatic syncing to work reliably, ensure the following setting is turned on inside Zoom:</span></p>
-<ul>
-    <li style="list-style-type:disc;font-size:11pt;font-family:Arial,sans-serif;">
-        <p role="presentation"><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">Go to&nbsp;</span><strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">Zoom Settings</span></strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">&nbsp;&gt;&nbsp;</span><strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">Keyboard Shortcuts</span></strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">.</span></p>
-    </li>
-    <li style="list-style-type:disc;font-size:11pt;font-family:Arial,sans-serif;">
-        <p role="presentation"><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">Find the shortcut for&nbsp;</span><strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">Mute/Unmute My Audio</span></strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">&nbsp;(</span><span style="color:#188038;font-size:11pt;font-family:'Roboto Mono',monospace;">Alt+A</span><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">&nbsp;on Windows,&nbsp;</span><span style="color:#188038;font-size:11pt;font-family:'Roboto Mono',monospace;">Cmd+Shift+A</span><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">&nbsp;on Mac).</span></p>
-    </li>
-    <li style="list-style-type:disc;font-size:11pt;font-family:Arial,sans-serif;">
-        <p role="presentation"><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">Make sure the checkbox for&nbsp;</span><strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">&quot;Enable Global Shortcut&quot;</span></strong><span style="color:#374151;font-size:11pt;font-family:Inter,sans-serif;">&nbsp;is checked. Without this, Zoom ignores mute commands when it isn&apos;t the active window on your screen.</span></p>
-    </li>
-</ul>
-<p><br></p>
-<p><br></p>
-<p><br></p>
+        <!-- Main Content Cards -->
+        <main class="main-content">
+            
+            <section id="overview" class="content-card hero-card">
+                <img src="../logo.png" alt="MicStatusPro Logo" class="logo">
+                <h1>How Zoom Sync Works (and Its Limitations)</h1>
+                <p>A simple guide to understanding how MicStatusPro talks to Zoom, why Zoom acts a little strange, and what you need to know to keep your microphone fully secure.</p>
+            </section>
+
+            <section id="hardware-vs-app" class="content-card">
+                <h2>1. Two Ways to Mute: Hardware vs. App</h2>
+                <p>Think of your microphone like a physical water faucet, and Zoom like a bucket catching the water.</p>
+                <ul>
+                    <li><strong>OS-Level Mute (Hardware Cut):</strong> This is what <strong>MicStatusPro</strong> does. It shuts off the main water valve at the wall (your computer's operating system). When this is muted, <em>no app on your computer</em> can hear anything, no matter what.</li>
+                    <li><strong>App-Level Mute (Software Filter):</strong> This is what <strong>Zoom</strong> does. It leaves the main valve turned on, but puts a lid over its own bucket. Zoom promises not to listen, but your microphone is still actively powered and sending sound to your computer.</li>
+                </ul>
+                <p>For true privacy, turning off the main valve (OS-level mute) is always safer than trusting an app to put a lid on its bucket.</p>
+            </section>
+
+            <section id="one-sided" class="content-card">
+                <h2>2. Why Zoom is a Bit One-Sided</h2>
+                <p>Zoom handles muting in a slightly dynamic way:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Action in Zoom</th>
+                            <th>What Zoom Actually Does</th>
+                            <th>Hardware Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Unmuting Zoom</td>
+                            <td>Opens the main computer mic AND removes its app lid.</td>
+                            <td>HOT (Listening)</td>
+                        </tr>
+                        <tr>
+                            <td>Muting Zoom</td>
+                            <td>Puts its app on mute but leaves the main computer mic on.</td>
+                            <td>HOT (Listening)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Because Zoom leaves your computer's main microphone active even when you click "Mute" inside Zoom, other apps could potentially still hear you.</p>
+            </section>
+
+            <section id="two-way-sync" class="content-card">
+                <h2>3. How MicStatusPro Fixes This ("Two-Way Sync")</h2>
+                <p>To keep you completely safe, MicStatusPro constantly watches Zoom to make sure both levels of mute stay in agreement.</p>
+                <p>When you mute or unmute using MicStatusPro:</p>
+                <ol>
+                    <li>It instantly cuts or restores your hardware microphone (the main valve).</li>
+                    <li>It quickly presses the keyboard shortcut (<code style="color:#188038; font-family:'Roboto Mono',monospace;">Alt+A</code>) or clicks Zoom's button automatically to force Zoom's button to match.</li>
+                </ol>
+                <p>This gives you seamless, full-hardware privacy while keeping the little microphone icon inside Zoom showing the correct state to your meeting attendees.</p>
+            </section>
+
+            <section id="limitations" class="content-card">
+                <h2>4. Things That Can Limit Zoom Sync</h2>
+                <p>Because Zoom does not provide an official, foolproof way for outside apps to control it, MicStatusPro has to "look" at Zoom's screen and press buttons on your behalf. This creates a few natural limitations to keep in mind:</p>
+                
+                <h3>UI & Language Changes</h3>
+                <ul>
+                    <li><strong>Interface Updates:</strong> If Zoom updates its app and completely changes how its buttons look or where they are placed, MicStatusPro might temporarily lose track of the button until we update our app.</li>
+                    <li><strong>Language Settings:</strong> MicStatusPro looks for specific text and button visual cues. If your Zoom app is set to a language other than English, visual detection may not work as expected.</li>
+                </ul>
+
+                <h3>Required Zoom Settings</h3>
+                <p>For automatic syncing to work reliably, ensure the following setting is turned on inside Zoom:</p>
+                <ol>
+                    <li>Go to <strong>Zoom Settings</strong> &gt; <strong>Keyboard Shortcuts</strong>.</li>
+                    <li>Find the shortcut for <strong>Mute/Unmute My Audio</strong> (<code style="color:#188038; font-family:'Roboto Mono',monospace;">Alt+A</code> on Windows, <code style="color:#188038; font-family:'Roboto Mono',monospace;">Cmd+Shift+A</code> on Mac).</li>
+                    <li>Make sure the checkbox for <strong>"Enable Global Shortcut"</strong> is checked. Without this, Zoom ignores mute commands when it isn't the active window on your screen.</li>
+                </ol>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="app-footer">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../eula.html">EULA</a></li>
+            <li><a href="documentation.html">Documentation Hub</a></li>
+        </ul>
+    </footer>
+
 </body>
 </html>
