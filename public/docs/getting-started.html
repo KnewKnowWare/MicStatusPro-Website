@@ -1,1 +1,275 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting Guide - MicStatusPro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* 1. Global Reset & Soft Aesthetics */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #F8FAFC;
+            color: #334155;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            color: #0078D7;
+            text-decoration: none;
+            transition: color 0.15s ease-in-out;
+        }
+
+        a:hover {
+            color: #005A9E;
+        }
+
+        /* 2. The Main Container */
+        .app-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            gap: 32px;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* 3. Sticky Sidebar Navigation */
+        .sidebar {
+            width: 260px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-nav {
+            position: sticky;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 24px 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #E2E8F0;
+        }
+
+        .sidebar-nav h3 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #94A3B8;
+            margin-bottom: 12px;
+            padding-left: 12px;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 4px;
+        }
+
+        .sidebar-nav a {
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: #334155;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .sidebar-nav a:hover {
+            color: #0078D7;
+            background-color: #F1F5F9;
+        }
+
+        /* 4. Main Content Area */
+        .main-content {
+            flex: 1;
+            min-width: 0; 
+        }
+
+        /* 5. Soft SaaS Section Cards */
+        .content-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #E2E8F0;
+        }
+        
+        /* Specific override for the hero image layout */
+        .content-card.hero-card {
+            text-align: center;
+        }
+        
+        .content-card.hero-card .logo {
+            max-width: 120px;
+            margin: 0 auto 20px auto;
+            display: block;
+        }
+
+        .content-card h1 {
+            font-size: 24px;
+            color: #0F172A;
+            margin-bottom: 12px;
+        }
+
+        .content-card h2 {
+            font-size: 18px;
+            color: #0F172A;
+            margin-top: 16px;
+            margin-bottom: 12px;
+        }
+
+        .content-card p {
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .content-card ul, 
+        .content-card ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        .content-card li {
+            margin-bottom: 6px;
+        }
+
+        /* 6. Footer Styles */
+        .app-footer {
+            background: #FFFFFF;
+            border-top: 1px solid #E2E8F0;
+            padding: 24px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .app-footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .app-footer a {
+            font-size: 14px;
+            color: #64748B;
+        }
+
+        .app-footer a:hover {
+            color: #0078D7;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="app-container">
+        
+        <!-- Navigation Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <h3>Documentation</h3>
+                <ul>
+                    <li><a href="#welcome">Welcome</a></li>
+                    <li><a href="#getting-started">Getting Started Guide</a></li>
+                    <li><a href="#installation">Installation Steps</a></li>
+                    <li><a href="#license">License Activation</a></li>
+                    <li><a href="#configuration">Initial Configuration</a></li>
+                    <li><a href="#workflow">Quick-Start Workflow</a></li>
+                    <li><a href="#features">Core Features</a></li>
+                    <li><a href="#requirements">System Requirements</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Cards -->
+        <main class="main-content">
+            
+            <section id="welcome" class="content-card hero-card">
+                <img src="../logo.png" alt="MicStatusPro Logo" class="logo">
+                <h1>Welcome</h1>
+                <p>Welcome to the MicStatusPro documentation. This guide will help you install, configure, and get the most out of MicStatusPro.</p>
+            </section>
+
+            <section id="getting-started" class="content-card">
+                <h2>Getting Started Guide</h2>
+                <p>Before you begin, make sure you have administrator rights on your computer and can install applications from the Microsoft Store.</p>
+            </section>
+
+            <section id="installation" class="content-card">
+                <h2>Installation Steps</h2>
+                <ol>
+                    <li>Download MicStatusPro from the Microsoft Store.</li>
+                    <li>Launch the application after installation completes.</li>
+                    <li>Find your application in the system tray and drag down to the taskbar.</li>
+                </ol>
+            </section>
+
+            <section id="license" class="content-card">
+                <h2>License Activation</h2>
+                <p>Enter your 25-character product license key into the configuration utility during initial boot. If deploying in an offline environment, generate an activation request file and submit it via the customer dashboard.</p>
+            </section>
+
+            <section id="configuration" class="content-card">
+                <h2>Initial Standard Configuration</h2>
+                <p> Default options are loaded when you first start</p>
+                <ul>
+                    <li><strong>Mute/Unmute Sounds:</strong> Audio notifications are enabled by default so you can hear when your microphone status changes.</li>
+                    <li><strong>Mute/UnMute Border:</strong> Mute and UnMute sound is on to help audibly hear the mic status changed.</li>
+                    <li><strong>Border Thickness & Transparency</strong> The default settings are a thickness of 7 and transparency of 40%.</li>
+                    <li><strong>Colorblind Mode:</strong> Disabled by default. Enable this option for improved visibility. For best results, set the border thickness between 10 and 20.</li>
+                    <li><strong>Theme:</strong> By default, MicStatusPro follows your Windows theme. You can switch to Light or Dark mode at any time.</li>                    
+                    <li><strong>Start with Windows:</strong> Disabled by default. Enable this option if you want MicStatusPro to start automatically when you sign in to Windows</li>
+                </ul>
+            </section>
+
+            <section id="workflow" class="content-card">
+                <h2>Quick-Start Workflow</h2>
+                <p>After setup is complete, test MicStatusPro by muting and unmuting your microphone. Confirm that the visual indicators and sounds work as expected.</p>
+            </section>
+
+            <section id="features" class="content-card">
+                <h2>Premium Features</h2>
+                <ul>
+                    <li><strong>Premium Color Engine:</strong> Customize your mute and unmute colors using the built-in color picker.</li>
+                    <li><strong>Global Toggle:</strong> The default hotkey is <b>Ctrl + Shift + M</b>. You can change this shortcut, but be sure to test it as some key combinations may conflict with other applications.</li>
+                    <li><strong>Push to Talk:</strong> Turn any keyboard key into a push-to-talk button. By default, the <b>Right Alt</b> key is used. Hold the key to speak and release it to instantly mute your microphone.</li>
+                    <li><strong>Multi-Monitor Support:</strong> Display microphone status borders on your primary monitor or across all connected displays. MicStatusPro automatically adjusts when monitors are connected or disconnected.</li>
+                    <li><strong>Text Overlay:</strong> Display a draggable, transparent on-screen indicator that shows "Muted" or "Unmuted." You can customize the text and colors to match your preferences. By default, double-clicking the text overlay toggles your microphone between muted and unmuted.</li>
+                </ul>
+            </section>
+
+            <section id="requirements" class="content-card">
+                <h2>System Requirements</h2>
+                <p>Minimum specifications for deployment:</p>
+                <ul>
+                    <li><strong>OS:</strong> Windows 10/11 (64-bit)</li>
+                    <li><strong>RAM:</strong> 200 MB available RAM</li>
+                    <li><strong>Storage:</strong> 200 MB available disk space</li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="app-footer">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../eula.html">EULA</a></li>
+            <li><a href="documentation.html">Documentation Hub</a></li>
+        </ul>
+    </footer>
+
+</body>
+</html>
