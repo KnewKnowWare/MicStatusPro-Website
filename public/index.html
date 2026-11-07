@@ -3,13 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MicStatusPro</title>
+    <title>Mic Status Pro</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             text-align: center;
-            padding: 80px 20px;
+            padding: 60px 20px;
             color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .logo {
+            max-width: 150px; /* Adjust this number to make your logo larger or smaller */
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .content {
+            text-align: left;
+            margin-top: 40px;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        h1 { color: #111; margin-bottom: 5px;}
+        h2 { color: #222; margin-top: 30px; }
+        ul { margin-bottom: 20px; padding-left: 20px; }
+        li { margin-bottom: 10px; }
+        .footer-links {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eaeaea;
         }
         a {
             display: inline-block;
@@ -22,11 +44,39 @@
     </style>
 </head>
 <body>
-    <h1>MicStatusPro</h1>
+
+    <!-- Logo Image -->
+    <img src="logo.png" alt="Mic Status Pro Logo" class="logo">
+
+    <h1>Mic Status Pro</h1>
     <p>The visual hardware status indicator for your microphone.</p>
-    <div>
+
+    <div class="content">
+        <p>Say goodbye to the "Am I muted?" panic! Mic Status Pro is the ultimate visual safety net for remote workers, streamers, and online educators. By communicating directly with your Windows hardware, Mic Status Pro places a sleek, click-through colored border around your screen to give you instant, unmistakable visual feedback on your microphone's true status. Never talk for five minutes on mute again, and never worry about a hot-mic accident when you think you're safe.</p>
+        
+        <h2>Why Mic Status Pro?</h2>
+        <ul>
+            <li><strong>The Standard Version:</strong> Gives you the core visual border. If the border is red, your Windows hardware is physically cut off. You are 100% safe.</li>
+            <li><strong>Upgrade to Pro:</strong> Unlocks the ultimate power-user toolkit, including the floating Text Overlay, Global Push-To-Talk, multi-monitor support, and exclusive access to our beta Insider features.</li>
+        </ul>
+
+        <h2>Features:</h2>
+        <ul>
+            <li><strong>Visual Confidence:</strong> A transparent, click-through screen border instantly tells you if your mic is live or muted.</li>
+            <li><strong>Pro: Push-To-Talk (PTT):</strong> Turn any keyboard key into a hardware-level walkie-talkie button.</li>
+            <li><strong>Pro: Global Hotkeys:</strong> Toggle your mute status from anywhere, even if your meeting app is minimized.</li>
+            <li><strong>Pro: Multi-Monitor Matrix:</strong> The border perfectly duplicates across all your active screens and seamlessly adapts when you dock or undock your laptop.</li>
+            <li><strong>Pro: Custom Color Engine:</strong> Match the overlay to your brand or personal aesthetic with full hex-code color selection.</li>
+            <li><strong>Pro: Floating Text Widget:</strong> Prefer text? Swap the border for a draggable, transparent overlay that explicitly reads "Mic Muted" or "Mic Active."</li>
+            <li><strong>Privacy First:</strong> Mic Status Pro operates entirely locally on your machine. We do not collect, listen to, or transmit your audio data.</li>
+        </ul>
+    </div>
+
+    <!-- Legal Links -->
+    <div class="footer-links">
         <a href="privacy.html">Privacy Policy</a>
         <a href="eula.html">End User License Agreement</a>
     </div>
+
 </body>
 </html>
