@@ -197,6 +197,43 @@
         .faq-item ul:last-child {
             margin-bottom: 0;
         }
+.doc-image {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.08);
+    margin: 15px auto;
+    display: block;
+}
+
+.image-caption {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #64748B;
+    margin-bottom: 20px;
+.related-articles {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #E2E8F0;
+    font-size: 0.9rem;
+    color: #64748B;
+}
+
+.related-articles strong {
+    color: #475569;
+}
+
+.related-articles a {
+    color: #0078D7;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.related-articles a:hover {
+    text-decoration: underline;
+}
+}
 
         /* 6. Footer Styles */
         .app-footer {
@@ -249,7 +286,7 @@
                 <h3>FAQ Topics</h3>
                 <ul>
                     <li><a href="#overview">Overview</a></li>
-                    <li><a href="#meeting-apps">Meeting Apps &amp; Syncing</a></li>
+                    <li><a href="#meeting-apps">Meeting Apps &amp; Zoom Sync</a></li>
                     <li><a href="#privay-security">Privacy &amp; Security</a></li>
                     <li><a href="#hardware-virtual">Headsets &amp; Virtual Audio</a></li>
                     <li><a href="#hotkeys-ptt">Shortcuts &amp; Push-to-Talk</a></li>
@@ -272,7 +309,7 @@
             </section>
 
             <section id="meeting-apps" class="content-card">
-                <h2>Meeting Apps &amp; Syncing</h2>
+                <h2>Meeting Apps &amp; Zoom Sync</h2>
 
                 <div class="faq-item">
                     <h3>Why doesn't the border change when I click the "Mute" button inside Zoom or Teams?</h3>
@@ -282,13 +319,18 @@
 
                 <div class="faq-item">
                     <h3>Why does my Windows mic mute/unmute, but Zoom stays out of sync?</h3>
-                    <p>Zoom Sync requires Zoom's Global Shortcut feature to be enabled. 
-                    <p>To keep Zoom synchronized:</p>
+                    <p>💡 Zoom Sync Mode requires Zoom's <strong>Global Shortcut</strong> option to be enabled for <strong>Mute/Unmute My Audio (Alt+A)</strong>. 
+                    <img src="images/zoom-global-shortcut.png"
+		     alt="Zoom Keyboard Shortcuts showing Global Shortcut enabled for Mute/Unmute My Audio"
+		     class="doc-image">
+<p>To keep Zoom synchronized:
                     <ol>
                         <li>Open Zoom <strong>Settings</strong></li>
                         <li>Select <strong>Keyboard Shortcuts</strong></li>
                         <li>Enable <strong>"Global Shortcut"</strong> next to <strong>Mute/Unmute My Audio</strong> (<code>Alt + A</code>).</li>
                     </ol>
+		</p>
+	
                 </div>
 
                 <div class="faq-item">
@@ -303,17 +345,22 @@
 
                 <div class="faq-item">
                     <h3>Does MicStatusPro work with Microsoft Teams, Google Meet, or Discord?</h3>
-                    <p>Yes. MicStatusPro works with Microsoft Teams, Google Meet, Discord, and most other communication applications because it monitors and controls your Windows microphone state.</p>
+                    <p><strong>Yes.</strong> MicStatusPro works with Microsoft Teams, Google Meet, Discord, and most other communication applications because it monitors and controls your Windows microphone state.</p>
                     <p>However, MicStatusPro currently provides automatic mute status synchronization only for Zoom through Zoom Sync Mode.</p>
                     <p>Other applications use their own mute controls and are not automatically synchronized today. Zoom is currently the only application with beta synchronization support. You can still mute and unmute your microphone using MicStatusPro, Global Hotkeys, or Push-to-Talk.</p>
                 </div>
+<div class="related-articles">
+    <strong>Learn More::</strong>
+    <a href="zoom-sync-modes.html">Zoom Sync Guide</a> •
+    <a href="zoom-limitations.html">Zoom Limitations & Workarounds</a>
+</div>
             </section>
             <section id="privacy-security" class="content-card">
                 <h2>Privacy &amp; Security</h2>
 
                <div class="faq-item">
                     <h3>Does MicStatusPro listen to, record, or transmit my audio?</h3>
-                    <p>No. MicStatusPro only checks the hardware on/off mute switch of your microphone through Windows. It never records, processes, or stores audio, and it never connects to the internet or transmits telemetry.</p>
+                    <p><strong>No.</strong> MicStatusPro only checks the hardware on/off mute switch of your microphone through Windows. It never records, processes, or stores audio, and it never connects to the internet or transmits telemetry.</p>
                 </div>
 
                 <div class="faq-item">
@@ -332,7 +379,7 @@
 
                 <div class="faq-item">
                     <h3>I use Nvidia Broadcast (or a Virtual Audio Cable). Will this work for me?</h3>
-                    <p>Yes. MicStatusPro works with Nvidia Broadcast and most virtual microphone solutions.</p>
+                    <p><strong>Yes.</strong> MicStatusPro works with Nvidia Broadcast and most virtual microphone solutions.</p>
                     <p>If your virtual microphone is your Windows default device, MicStatusPro will monitor that device. For the most reliable results, use MicStatusPro's software mute controls rather than a headset's physical mute button.</p>
                 </div>
 
@@ -359,25 +406,47 @@
                     <h3>Why didn't Push-to-Talk mute my mic when I released the key?</h3>
                     <p>By default, <strong>"Only use Push-To-Talk when already muted"</strong> is enabled. If your microphone was already unmuted before you pressed the Push-to-Talk key, releasing the key will leave your microphone active.</p>
                 </div>
+<div class="related-articles">
+    <strong>Learn More::</strong>
+    <a href="getting-started.html">Getting Started Guide</a> •
+    <a href="zoom-sync-modes.html">Zoom Sync Modes</a>
+</div>
             </section>
 
             <section id="visual-overlays" class="content-card">
                 <h2>Borders &amp; Multi-Monitor</h2>
-
+                
+                <div class="faq-item">
+                    <h3>Why is my screen border dashed instead of solid?</h3>
+                    <p>A dashed border means MicStatusPro detected that Windows is using different microphones for general audio and communication apps.</p> <p>This can cause some applications to use a different microphone than expected.</p>
+                    <p>Click <strong>Fix Microphone Settings</strong> in MicStatusPro for a quick fix, or see the <strong><a href="troubleshooting.html#audio-mismatch">"Why Is My Screen Border Dashed?"</a></strong> troubleshooting guide for detailed instructions.</p>
+<img src="images/mic-mismatch.png"
+		     alt="Shows the Microphone Mismatch Warning and Fix Microphone Setting box"
+		     class="doc-image">
+                </div>
                 <div class="faq-item">
                     <h3>Will the colored border block my mouse clicks near the edge of the screen?</h3>
-                    <p>No. Both the screen border and the floating text overlay are <strong>click-through overlays</strong> so you can click browser tabs, scrollbars, and window close buttons normally. <em>(Note: Double-clicking the floating text overlay itself is intentionally enabled so you can quickly toggle mute on or off.)</em></p>
+                    <p><strong>No.</strong> Both the screen border and the floating text overlay are <strong>click-through overlays</strong> so you can click browser tabs, scrollbars, and window close buttons normally. <em>(Note: Double-clicking the floating text overlay itself is intentionally enabled so you can quickly toggle mute on or off.)</em></p>
                 </div>
 
                 <div class="faq-item">
                     <h3>Can I put a border around just one app window instead of my whole monitor?</h3>
-                    <p>Yes. Under <strong>App Window Tracking</strong> in Settings, you can target a specific running application—or even a single window when you have multiple browser or document windows open—and in Basic Setting uncheck Show Border to turn off the full-monitor border.</p>
+                    <p><strong>Yes.</strong> Under <strong>App Window Tracking</strong> in Settings, you can target a specific running application—or even a single window when you have multiple browser or document windows open—and in <strong>Basic Settings</strong>, uncheck <strong>Show Border</strong> to turn off the full-monitor border.</p>
+<img src="images/app-tracking.png"
+		     alt="Show the App Tracking Settings"
+		     class="doc-image">
                 </div>
 
                 <div class="faq-item">
                     <h3>What happens when I dock/undock my laptop or unplug a second monitor?</h3>
                     <p>MicStatusPro automatically detects Windows display changes and rebuilds the borders to fit your active monitor layout without needing a restart.</p>
                 </div>
+<div class="related-articles">
+    <strong>Learn More::</strong>
+    <a href="troubleshooting.html#audio-mismatch">
+        Why Is My Screen Border Dashed?
+    </a>
+</div>
             </section>
 
             <section id="tray-license" class="content-card">
