@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions (FAQ) - MicStatusPro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* 1. Global Reset & Soft Aesthetics */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #F8FAFC;
+            color: #334155;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            color: #0078D7;
+            text-decoration: none;
+            transition: color 0.15s ease-in-out;
+        }
+
+        a:hover {
+            color: #005A9E;
+        }
+
+        code {
+            background-color: #F1F5F9;
+            color: #0F172A;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 13px;
+            border: 1px solid #E2E8F0;
+        }
+
+        /* 2. The Main Container */
+        .app-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            gap: 32px;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* 3. Sticky Sidebar Navigation */
+        .sidebar {
+            width: 260px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-nav {
+            position: sticky;
+            top: 40px;
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 24px 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #E2E8F0;
+        }
+
+        .sidebar-nav h3 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #94A3B8;
+            margin-bottom: 12px;
+            padding-left: 12px;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 4px;
+        }
+
+        .sidebar-nav a {
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: #334155;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .sidebar-nav a:hover {
+            color: #0078D7;
+            background-color: #F1F5F9;
+        }
+
+        /* 4. Main Content Area */
+        .main-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* 5. Soft SaaS Section Cards */
+        .content-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #E2E8F0;
+        }
+
+        /* Specific override for the hero image layout */
+        .content-card.hero-card {
+            text-align: center;
+        }
+
+        .content-card.hero-card .logo {
+            max-width: 120px;
+            margin: 0 auto 20px auto;
+            display: block;
+        }
+
+        .content-card h1 {
+            font-size: 24px;
+            color: #0F172A;
+            margin-bottom: 12px;
+        }
+
+        .content-card h2 {
+            font-size: 20px;
+            color: #0F172A;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .content-card p {
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .content-card ul,
+        .content-card ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        .content-card li {
+            margin-bottom: 6px;
+        }
+
+        /* Top Support Callout Banner */
+        .support-callout {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 10px 18px;
+            background-color: #F1F5F9;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #334155;
+        }
+
+        .support-callout a {
+            font-weight: 600;
+        }
+
+        /* FAQ Item Styling */
+        .faq-item {
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #F1F5F9;
+        }
+
+        .faq-item:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .faq-item h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0F172A;
+            margin-bottom: 8px;
+        }
+
+        .faq-item p:last-child,
+        .faq-item ul:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 6. Footer Styles */
+        .app-footer {
+            background: #FFFFFF;
+            border-top: 1px solid #E2E8F0;
+            padding: 24px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .app-footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .app-footer a {
+            font-size: 14px;
+            color: #64748B;
+        }
+
+        .app-footer a:hover {
+            color: #0078D7;
+        }
+
+        /* Responsive Mobile Layout */
+        @media (max-width: 768px) {
+            .app-container {
+                flex-direction: column;
+                padding: 24px 16px;
+            }
+            .sidebar {
+                width: 100%;
+            }
+            .sidebar-nav {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- Navigation Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <h3>FAQ Topics</h3>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#meeting-apps">Meeting Apps &amp; Syncing</a></li>
+                    <li><a href="#privay-security">Privacy &amp; Security</a></li>
+                    <li><a href="#hardware-virtual">Headsets &amp; Virtual Audio</a></li>
+                    <li><a href="#hotkeys-ptt">Shortcuts &amp; Push-to-Talk</a></li>
+                    <li><a href="#visual-overlays">Borders &amp; Multi-Monitor</a></li>
+                    <li><a href="#tray-license">Tray &amp; Licensing</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Cards -->
+        <main class="main-content">
+
+            <section id="overview" class="content-card hero-card">
+                <img src="../logo.png" alt="MicStatusPro Logo" class="logo">
+                <h1>Frequently Asked Questions</h1>
+                <p>Answers to common questions about hardware mute detection, meeting app syncing, virtual microphones, shortcuts, and display overlays in MicStatusPro.</p>
+                <div class="support-callout">
+                    💡 Can't find your answer? Visit the <a href="documentation.html">Documentation Hub</a> or <a href="mailto:support@micstatuspro.com?subject=MicStatusPro%20Support%20Web%20Request">Contact Support</a>
+                </div>
+            </section>
+
+            <section id="meeting-apps" class="content-card">
+                <h2>Meeting Apps &amp; Syncing</h2>
+
+                <div class="faq-item">
+                    <h3>Why doesn't the border change when I click the "Mute" button inside Zoom or Teams?</h3>
+                    <p>Many meeting apps use <strong>"Software Mute,"</strong> which stops audio from being transmitted but does not mute your microphone in Windows. MicStatusPro monitors your actual Windows microphone state. For the most reliable privacy, use MicStatusPro's mute controls, Global Hotkey, or Push-to-Talk features.</p>
+                    <p>For the best experience, use MicStatusPro's Global Hotkey or Push-To-Talk feature to mute yourself at the hardware level—this guarantees complete privacy.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Why does my Windows mic mute/unmute, but Zoom stays out of sync?</h3>
+                    <p>Zoom Sync requires Zoom's Global Shortcut feature to be enabled. 
+                    <p>To keep Zoom synchronized:</p>
+                    <ol>
+                        <li>Open Zoom <strong>Settings</strong></li>
+                        <li>Select <strong>Keyboard Shortcuts</strong></li>
+                        <li>Enable <strong>"Global Shortcut"</strong> next to <strong>Mute/Unmute My Audio</strong> (<code>Alt + A</code>).</li>
+                    </ol>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What is the difference between Two-Way Sync, OS Master, and Zoom Master?</h3>
+			<p>For a complete explanation, see the <a href="zoom-sync-modes.html">Zoom Sync documentation.</a>
+                    <ul>
+                        <li><strong>Two-Way Sync (Recommended):</strong> Keeps Windows and Zoom aligned in both directions.</li>
+                        <li><strong>OS Master:</strong> Your Windows microphone state dictates whether Zoom is muted or unmuted.</li>
+                        <li><strong>Zoom Master:</strong> Zoom controls the mute state, and Windows follows Zoom's lead.</li>
+                    </ul>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Does MicStatusPro work with Microsoft Teams, Google Meet, or Discord?</h3>
+                    <p>Yes. MicStatusPro works with Microsoft Teams, Google Meet, Discord, and most other communication applications because it monitors and controls your Windows microphone state.</p>
+                    <p>However, MicStatusPro currently provides automatic mute status synchronization only for Zoom through Zoom Sync Mode.</p>
+                    <p>Other applications use their own mute controls and are not automatically synchronized today. Zoom is currently the only application with beta synchronization support. You can still mute and unmute your microphone using MicStatusPro, Global Hotkeys, or Push-to-Talk.</p>
+                </div>
+            </section>
+            <section id="privacy-security" class="content-card">
+                <h2>Privacy &amp; Security</h2>
+
+               <div class="faq-item">
+                    <h3>Does MicStatusPro listen to, record, or transmit my audio?</h3>
+                    <p>No. MicStatusPro only checks the hardware on/off mute switch of your microphone through Windows. It never records, processes, or stores audio, and it never connects to the internet or transmits telemetry.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Where are my settings stored?</h3>
+                    <p>Settings are stored locally on your computer in a configuration file.</p>
+                </div>
+            </section>
+
+            <section id="hardware-virtual" class="content-card">
+                <h2>Headsets &amp; Virtual Audio</h2>
+
+                <div class="faq-item">
+                    <h3>Why doesn't MicStatusPro detect my headset's physical mute button?</h3>
+                    <p>Some headset mute buttons only mute the headset itself and do not notify Windows that the microphone was muted. Since Windows doesn't know you pressed the button, MicStatusPro doesn't either. You can solve this by using MicStatusPro's Global Hotkey or Push-To-Talk feature to manage your muting directly through Windows.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>I use Nvidia Broadcast (or a Virtual Audio Cable). Will this work for me?</h3>
+                    <p>Yes. MicStatusPro works with Nvidia Broadcast and most virtual microphone solutions.</p>
+                    <p>If your virtual microphone is your Windows default device, MicStatusPro will monitor that device. For the most reliable results, use MicStatusPro's software mute controls rather than a headset's physical mute button.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Why did the border stop updating after I switched to my Bluetooth headset or woke my PC from sleep?</h3>
+                    <p>Windows sometimes changes microphone devices when Bluetooth headsets reconnect or after your PC wakes from sleep. MicStatusPro automatically reconnects to the active device. If the border doesn't update, toggle mute once or reopen Settings to refresh the connection.</p>
+                </div>
+            </section>
+
+            <section id="hotkeys-ptt" class="content-card">
+                <h2>Shortcuts &amp; Push-to-Talk</h2>
+
+                <div class="faq-item">
+                    <h3>Why can't I assign any custom key I want for Global Toggle or Push-to-Talk?</h3>
+                    <p>To keep everyday typing smooth and prevent conflicts with other software, MicStatusPro uses a selected list of supported keys—such as <code>Right ALT</code> (default), <code>Left ALT</code>, <code>Right CTRL</code>, <code>Left CTRL</code>, and <code>`</code> / <code>~</code>—along with <code>Ctrl + Shift + M</code> for the Global Toggle. Arbitrary letter or symbol keys can interfere with typing in documents, browsers, and games.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Why does pressing <code>`</code> or <code>~</code> type a character when I'm in Word, Slack, or a browser?</h3>
+                    <p>Currently, selecting a printable character like <code>`</code> or <code>~</code> listens for the keypress without blocking Windows from sending that character to your active text cursor. If you frequently type while speaking, choose a non-printing modifier key such as <code>Right ALT</code> or <code>Left CTRL</code> instead.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Why didn't Push-to-Talk mute my mic when I released the key?</h3>
+                    <p>By default, <strong>"Only use Push-To-Talk when already muted"</strong> is enabled. If your microphone was already unmuted before you pressed the Push-to-Talk key, releasing the key will leave your microphone active.</p>
+                </div>
+            </section>
+
+            <section id="visual-overlays" class="content-card">
+                <h2>Borders &amp; Multi-Monitor</h2>
+
+                <div class="faq-item">
+                    <h3>Will the colored border block my mouse clicks near the edge of the screen?</h3>
+                    <p>No. Both the screen border and the floating text overlay are <strong>click-through overlays</strong> so you can click browser tabs, scrollbars, and window close buttons normally. <em>(Note: Double-clicking the floating text overlay itself is intentionally enabled so you can quickly toggle mute on or off.)</em></p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can I put a border around just one app window instead of my whole monitor?</h3>
+                    <p>Yes. Under <strong>App Window Tracking</strong> in Settings, you can target a specific running application—or even a single window when you have multiple browser or document windows open—and in Basic Setting uncheck Show Border to turn off the full-monitor border.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What happens when I dock/undock my laptop or unplug a second monitor?</h3>
+                    <p>MicStatusPro automatically detects Windows display changes and rebuilds the borders to fit your active monitor layout without needing a restart.</p>
+                </div>
+            </section>
+
+            <section id="tray-license" class="content-card">
+                <h2>Tray &amp; Licensing</h2>
+
+                <div class="faq-item">
+                    <h3>Where did the app go when I closed the Settings window?</h3>
+                    <p>MicStatusPro runs quietly in your <strong>Windows System Tray</strong> (near the clock on your taskbar). Left-click the tray icon to toggle mute, and right-click it to open Settings, access quick controls and Exit.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Do I need a separate license key to unlock Pro features?</h3>
+                    <p>When installed through the Microsoft Store, Pro features are tied automatically to your Microsoft account via Digital Entitlement. If you reinstall Windows or switch to a new PC, signing into the Microsoft Store restores your Pro access.</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="app-footer">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../eula.html">EULA</a></li>
+            <li><a href="documentation.html">Documentation Hub</a></li>
+        </ul>
+    </footer>
+
+</body>
+</html>
