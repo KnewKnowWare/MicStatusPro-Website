@@ -17,6 +17,31 @@
         h2 { color: #222; margin-top: 30px; }
         ul { margin-bottom: 20px; }
         p { margin-bottom: 15px; }
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 40px 0;
+            border-top: 1px solid #E2E8F0;
+        }
+        .footer a {
+            color: #64748B;
+            text-decoration: none;
+            margin: 0 4px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .footer a:hover {
+            color: #0078D7;
+            text-decoration: underline;
+        }
+        .footer a:not(:last-child)::after {
+            content: " |";
+            margin-left: 8px;
+            color: #94A3B8;
+        }
     </style>
 </head>
 <body>
@@ -72,4 +97,15 @@
         <li><strong>Website:</strong> micstatuspro.com</li>
     </ul>
 </body>
+    </div>
+
+    <!-- Footer / Legal Links -->
+    <footer class="footer">
+    <a href="../index.html">Back to Home</a>
+    <a href="../privacy.html">Privacy Policy</a>
+    <a href="../eula.html">End User License Agreement</a>
+</footer>
+
+</div>
+
 </html>
