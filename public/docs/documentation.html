@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MicStatusPro - Documentation Hub</title>
 <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "zdw53732ha");
-</script>    
+(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){
+        (c[a].q=c[a].q||[]).push(arguments)
+    };
+    t=l.createElement(r);
+    t.async=1;
+    t.src="https://www.clarity.ms/tag/" + i;
+    y=l.getElementsByTagName(r)[0];
+    y.parentNode.insertBefore(t,y);
+	})(window, document, "clarity", "script", "zdw53732ha");
+</script>
 	<style>
         /* 1. Global Reset & Soft Aesthetics */
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,7 +47,6 @@
             max-width: 120px;
             margin: 0 auto 20px auto;
             display: block;
-}
         }
         h1 {
             color: #0F172A;
@@ -170,96 +174,101 @@
             color: #0078D7;
             text-decoration: underline;
         }
-	.search-container {
-	    position: relative;
-	    max-width: 700px;
-	    margin: 0 auto 4px auto;
-	}
+		.footer a:not(:last-child)::after {
+	    content: "|";
+    	margin-left: 10px;
+    	color: #94A3B8;
+		}
+		.search-container {
+		    position: relative;
+		    max-width: 700px;
+		    margin: 0 auto 4px auto;
+		}
 	
-	.search-input {
-	    width: 100%;
-	    padding: 14px 50px 14px 18px;
-	    font-size: 1rem;
-	    border: 1px solid #CBD5E1;
-	    border-radius: 12px;
-	    background: white;
-	    color: #334155;
-	    outline: none;
-	    transition: all 0.2s ease;
-	    box-shadow: 0 1px 3px rgba(0,0,0,.05);
-	}
-	
-	.search-input:focus {
-	    border-color: #0078D7;
-	    box-shadow: 0 0 0 4px rgba(0,120,215,.12);
-	}
-	
-	.search-icon {
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-size: 18px;
-    color: #64748B;
-}
-.popular-searches {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #64748B;
-    font-size: 0.9rem;
-}
-
-.popular-searches a {
-    display: inline-block;
-    padding: 4px 10px;
-    margin: 4px;
-    background: #EEF6FF;
-    border-radius: 999px;
-    color: #0078D7;
-}
-
-.popular-searches a:hover {
-    text-decoration: underline;
-}
-.popular-label {
-    color: #94A3B8;
-    font-weight: 600;
-}
+		.search-input {
+		    width: 100%;
+		    padding: 14px 50px 14px 18px;
+		    font-size: 1rem;
+		    border: 1px solid #CBD5E1;
+		    border-radius: 12px;
+		    background: white;
+		    color: #334155;
+		    outline: none;
+		    transition: all 0.2s ease;
+		    box-shadow: 0 1px 3px rgba(0,0,0,.05);
+		}
+		
+		.search-input:focus {
+		    border-color: #0078D7;
+		    box-shadow: 0 0 0 4px rgba(0,120,215,.12);
+		}
+		
+		.search-icon {
+	    position: absolute;
+	    right: 16px;
+	    top: 50%;
+	    transform: translateY(-50%);
+	    border: none;
+	    background: none;
+	    cursor: pointer;
+	    font-size: 18px;
+	    color: #64748B;
+		}
+		.popular-searches {
+		    text-align: center;
+		    margin-bottom: 30px;
+		    color: #64748B;
+		    font-size: 0.9rem;
+		}
+		
+		.popular-searches a {
+		    display: inline-block;
+		    padding: 4px 10px;
+		    margin: 4px;
+		    background: #EEF6FF;
+		    border-radius: 999px;
+		    color: #0078D7;
+		}
+		
+		.popular-searches a:hover {
+		    text-decoration: underline;
+		}
+		.popular-label {
+		    color: #94A3B8;
+		    font-weight: 600;
+		}
     </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <!-- Hero Section -->
-        <header class="hero">
-            <img src="../logo.png" alt="MicStatusPro Logo" class="logo">
-            <h1>MicStatusPro Documentation Center</h1>
-            <p class="subtitle">Everything you need to install, configure, troubleshoot, and get the most out of MicStatusPro.</p>
-        </header>
-    <div class="search-container">
-    <input type="text"
-           id="docSearch"
-           class="search-input"
-           placeholder="Search documentation, FAQ, Zoom Sync, troubleshooting..." />
+	<div class="container">
+		
+		<!-- Hero Section -->
+		<header class="hero">
+			<img src="../logo.png" alt="MicStatusPro Logo" class="logo">
+			<h1>MicStatusPro Documentation Center</h1>
+			<p class="subtitle">Everything you need to install, configure, troubleshoot, and get the most out of MicStatusPro.</p>
+		</header>
+	<div class="search-container">
+		<input type="text"
+			   id="docSearch"
+			   class="search-input"
+			   placeholder="Search documentation, FAQ, Zoom Sync, troubleshooting..." />
+	
+		<button class="search-icon" id="searchButton" type="button">
+		🔍
+		</button>
+	</div>
+	
+	<div class="popular-searches">
+	    <span class="popular-label">Popular Searches:</span>
+	    <a href="faq.html">Privacy</a> •
+	    <a href="zoom-sync-modes.html">Zoom Sync</a> •
+	    <a href="troubleshooting.html">Headset</a> •
+	    <a href="getting-started.html">Activation</a>
+	</div>
 
-    <button class="search-icon" id="searchButton" type="button">
-    🔍
-</button>
-</div>
-
-<div class="popular-searches">
-    <span class="popular-label">Popular Searches:</span>
-    <a href="faq.html">Privacy</a> •
-    <a href="zoom-sync-modes.html">Zoom Sync</a> •
-    <a href="troubleshooting.html">Headset Issues</a> •
-    <a href="getting-started.html">Activation</a>
-</div>
-
-        <div class="docs-grid">
+	<div class="docs-grid">
 
     <div class="doc-card">
         <div class="category-label">Install</div>
@@ -298,10 +307,10 @@
         <div class="category-label">Resolve</div>
         <h3>🔧 Troubleshooting</h3>
         <p>Resolve common issues, audio device conflicts, synchronization problems, and configuration errors.</p>
-        <a href="getting-started.html"
+        <a href="troubleshooting.html"
    class="btn-outline"
-   onclick="clarity('event','open_getting_started')">
-   Get Started
+   onclick="clarity('event','open_troubleshooting')">
+   Fix a Problem
 </a>
     </div>
 
@@ -338,9 +347,9 @@
 
     <li>Experiencing issues? Follow the <a href="troubleshooting.html">Troubleshooting Guide</a>.</li>
 </ul>
-        </div>
+</div>
 
-        <    <!-- Footer / Legal Links -->
+	<!-- Footer / Legal Links -->
     <footer class="footer">
         <a href="../index.html">Back to Home</a>
         <a href="../privacy.html">Privacy Policy</a>
@@ -357,7 +366,7 @@ function performSearch() {
         .value
         .toLowerCase()
         .trim();
-
+	console.log("SEARCH:", search);
     if (typeof clarity === 'function') {
     clarity("event", "documentation_search");
     clarity("set", "searchTerm", search);
@@ -366,9 +375,9 @@ function performSearch() {
     if (
         search.includes('nvidia') ||
         search.includes('broadcast') ||
-	search.includes('bluetooth') ||
-	search.includes('logitech') ||        
-	search.includes('teams') ||
+		search.includes('bluetooth') ||
+		search.includes('logitech') ||        
+		search.includes('teams') ||
         search.includes('discord') ||
         search.includes('meet') ||
         search.includes('headset') ||
@@ -377,9 +386,8 @@ function performSearch() {
         search.includes('license') ||
         search.includes('activation') ||
         search.includes('ptt') ||
-	search.includes('microphone') ||
-	search.includes('mute') ||
-	search.includes('privacy') ||
+		search.includes('microphone') ||
+		search.includes('mute') ||
         search.includes('push')
     ) {
         window.location.href = 'faq.html';
@@ -397,10 +405,10 @@ function performSearch() {
     }
     else if (
         search.includes('not working') ||
-	search.includes('stuck') ||
-	search.includes('broken') ||
-	search.includes('detect') ||
-	search.includes('problem') ||
+		search.includes('stuck') ||
+		search.includes('broken') ||
+		search.includes('detect') ||
+		search.includes('problem') ||
         search.includes('issue') ||
         search.includes('error') ||
         search.includes('border')
@@ -410,7 +418,10 @@ function performSearch() {
     else if (
         search.includes('install') ||
         search.includes('setup') ||
-        search.includes('getting started')
+		search.includes('getting') ||
+		search.includes('start') ||
+        search.includes('getting started') ||
+		search.includes('activation')
     ) {
         window.location.href = 'getting-started.html';
     }
