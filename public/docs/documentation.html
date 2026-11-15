@@ -188,15 +188,16 @@
 	}
 	
 	.search-icon {
-	    position: absolute;
-	    right: 16px;
-	    top: 50%;
-	    transform: translateY(-50%);
-	    color: #64748B;
-font-size: 18px;
-    line-height: 1;
-	    pointer-events: none;
-	}
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #64748B;
+}
 .popular-searches {
     text-align: center;
     margin-bottom: 30px;
@@ -238,7 +239,9 @@ font-size: 18px;
            class="search-input"
            placeholder="Search documentation, FAQ, Zoom Sync, troubleshooting..." />
 
-    <span class="search-icon">🔍</span>
+    <button class="search-icon" id="searchButton" type="button">
+    🔍
+</button>
 </div>
 
 <div class="popular-searches">
@@ -310,14 +313,61 @@ font-size: 18px;
 </ul>
         </div>
 
-        <!-- Footer / Legal Links -->
-        <footer class="footer">
-            <a href="../index.html">Back to Home</a>
-            <a href="../privacy.html">Privacy Policy</a>
-            <a href="../eula.html">End User License Agreement</a>
-        </footer>
+        <    <!-- Footer / Legal Links -->
+    <footer class="footer">
+        <a href="../index.html">Back to Home</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../eula.html">End User License Agreement</a>
+    </footer>
 
-    </div>
+</div>
+
+<script>
+function performSearch() {
+    const search = document
+        .getElementById('docSearch')
+        .value
+        .toLowerCase()
+        .trim();
+
+    if (search.includes('zoom')) {
+        window.location.href = 'zoom-sync-modes.html';
+    }
+    else if (search.includes('privacy')) {
+        window.location.href = 'faq.html';
+    }
+    else if (search.includes('license') || search.includes('activation')) {
+        window.location.href = 'getting-started.html';
+    }
+    else if (search.includes('headset')) {
+        window.location.href = 'faq.html';
+    }
+    else if (search.includes('push') || search.includes('ptt')) {
+        window.location.href = 'faq.html';
+    }
+    else if (search.includes('troubleshoot') || search.includes('problem')) {
+        window.location.href = 'troubleshooting.html';
+    }
+    else if (search.includes('beta')) {
+        window.location.href = 'zoom-limitations.html';
+    }
+    else {
+        alert('Try searching for Zoom, Privacy, Activation, Headset, Push-to-Talk, License, or Troubleshooting.');
+    }
+}
+
+document
+    .getElementById('docSearch')
+    .addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            performSearch();
+        }
+    });
+
+document
+    .getElementById('searchButton')
+    .addEventListener('click', performSearch);
+</script>
 
 </body>
 </html>
