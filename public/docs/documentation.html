@@ -163,6 +163,63 @@
             color: #0078D7;
             text-decoration: underline;
         }
+	.search-container {
+	    position: relative;
+	    max-width: 700px;
+	    margin: 0 auto 4px auto;
+	}
+	
+	.search-input {
+	    width: 100%;
+	    padding: 14px 50px 14px 18px;
+	    font-size: 1rem;
+	    border: 1px solid #CBD5E1;
+	    border-radius: 12px;
+	    background: white;
+	    color: #334155;
+	    outline: none;
+	    transition: all 0.2s ease;
+	    box-shadow: 0 1px 3px rgba(0,0,0,.05);
+	}
+	
+	.search-input:focus {
+	    border-color: #0078D7;
+	    box-shadow: 0 0 0 4px rgba(0,120,215,.12);
+	}
+	
+	.search-icon {
+	    position: absolute;
+	    right: 16px;
+	    top: 50%;
+	    transform: translateY(-50%);
+	    color: #64748B;
+font-size: 18px;
+    line-height: 1;
+	    pointer-events: none;
+	}
+.popular-searches {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #64748B;
+    font-size: 0.9rem;
+}
+
+.popular-searches a {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 4px;
+    background: #EEF6FF;
+    border-radius: 999px;
+    color: #0078D7;
+}
+
+.popular-searches a:hover {
+    text-decoration: underline;
+}
+.popular-label {
+    color: #94A3B8;
+    font-weight: 600;
+}
     </style>
 </head>
 <body>
@@ -173,45 +230,67 @@
         <header class="hero">
             <img src="../logo.png" alt="MicStatusPro Logo" class="logo">
             <h1>MicStatusPro Documentation Center</h1>
-            <p class="subtitle">Find setup guides, configuration tips, troubleshooting resources, and feature documentation to help you get the most out of MicStatusPro.</p>
+            <p class="subtitle">Everything you need to install, configure, troubleshoot, and get the most out of MicStatusPro.</p>
         </header>
+    <div class="search-container">
+    <input type="text"
+           id="docSearch"
+           class="search-input"
+           placeholder="Search documentation, FAQ, Zoom Sync, troubleshooting..." />
 
-        <!-- Documentation Cards Grid (Replaces the messy HTML table) -->
+    <span class="search-icon">🔍</span>
+</div>
+
+<div class="popular-searches">
+    <span class="popular-label">Popular Searches:</span>
+    <a href="faq.html">Privacy</a> •
+    <a href="zoom-sync-modes.html">Zoom Sync</a> •
+    <a href="troubleshooting.html">Headset Issues</a> •
+    <a href="getting-started.html">Activation</a>
+</div>
+
         <div class="docs-grid">
-            
-            <div class="doc-card">
-                <div class="category-label">Install</div>
-                <h3>Getting Started</h3>
-                <p>Install MicStatusPro, activate your license, configure your settings, and get started in minutes.</p>
-                <a href="getting-started.html" class="btn-outline">View Guide</a>
-            </div>
 
-            <div class="doc-card">
-                <div class="category-label">Resolve</div>
-                <h3>Troubleshooting</h3>
-                <p>Solutions for common issues, troubleshooting steps, audio device conflicts, and frequently asked questions</p>
-                <a href="troubleshooting.html" class="btn-outline">View Guide</a>
-            </div>
+    <div class="doc-card">
+        <div class="category-label">Install</div>
+        <h3>🚀 Getting Started</h3>
+        <p>Install MicStatusPro, activate your license, configure your settings, and get started in minutes.</p>
+        <a href="getting-started.html" class="btn-outline">Get Started</a>
+    </div>
 
-            <div class="doc-card">
-                <div class="category-label">Explore</div>
-                <h3>Beta Features</h3>
-                <p>Learn about beta features, including App Tracking and Zoom Sync Mode</p>
-                <a href="zoom-sync-modes.html" class="btn-outline">View Guide</a>
-            </div>
+    <div class="doc-card">
+        <div class="category-label">Questions</div>
+        <h3>❓ Frequently Asked Questions</h3>
+        <p>Find quick answers to common questions about Zoom Sync, privacy, headsets, Push-to-Talk, licensing, and more.</p>
+        <a href="faq.html" class="btn-outline">Browse FAQ</a>
+    </div>
 
-            <div class="doc-card">
-                <div class="category-label">Learn</div>
-                <h3>Limitations and workarounds</h3>
-                <p>Known limitations, Windows permission requirements, and recommended solutions.</p>
-                <a href="zoom-limitations.html" class="btn-outline">View Guide</a>
-            </div>
+    <div class="doc-card">
+        <div class="category-label">Explore</div>
+        <h3>🔄 Zoom Sync Guide</h3>
+        <p>Learn how Zoom Sync works, understand the available sync modes, and review application integration requirements.</p>
+        <a href="zoom-sync-modes.html" class="btn-outline">Learn More</a>
+    </div>
 
-        </div>
+    <div class="doc-card">
+        <div class="category-label">Resolve</div>
+        <h3>🔧 Troubleshooting</h3>
+        <p>Resolve common issues, audio device conflicts, synchronization problems, and configuration errors.</p>
+        <a href="troubleshooting.html" class="btn-outline">Fix a Problem</a>
+    </div>
+
+    <div class="doc-card">
+        <div class="category-label">Learn</div>
+        <h3>⚠️ Limitations & Beta Features</h3>
+        <p>Review known limitations, experimental features, compatibility notes, and recommended workarounds.</p>
+        <a href="zoom-limitations.html" class="btn-outline">View Details</a>
+    </div>
+
+</div>
 
         <!-- Technical Overview Box -->
         <div class="tech-section">
-            <h2>Technical Overview & Resources</h2>
+            <h2>Additional Resources</h2>
             
             <h3>System Requirements</h3>
             <ul>
@@ -220,11 +299,15 @@
             </ul>
 
             <h3>Quick Reference Links</h3>
-            <ul>
-                <li>Need help getting started? View the <a href="getting-started.html">Getting Started Guide</a>.</li>
-                <li>Having trouble with Zoom microphone status syncing? Review <a href="zoom-sync-modes.html">Zoom Sync Modes</a> or troubleshoot via <a href="zoom-limitations.html">Zoom Limitations</a>.</li>
-                <li>Running into problems? Follow our <a href="troubleshooting.html">Troubleshooting Guide</a>.</li>
-            </ul>
+<ul>
+    <li>New to MicStatusPro? Start with the <a href="getting-started.html">Getting Started Guide</a>.</li>
+
+    <li>Looking for quick answers? Browse the <a href="faq.html">Frequently Asked Questions</a>.</li>
+
+    <li>Need help with Zoom synchronization? Review <a href="zoom-sync-modes.html">Zoom Sync Modes</a> and <a href="zoom-limitations.html">Zoom Limitations & Workarounds</a>.</li>
+
+    <li>Experiencing issues? Follow the <a href="troubleshooting.html">Troubleshooting Guide</a>.</li>
+</ul>
         </div>
 
         <!-- Footer / Legal Links -->
