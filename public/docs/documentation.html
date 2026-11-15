@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MicStatusPro - Documentation Hub</title>
-    <style>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zdw53732ha");
+</script>    
+	<style>
         /* 1. Global Reset & Soft Aesthetics */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -258,35 +265,55 @@
         <div class="category-label">Install</div>
         <h3>🚀 Getting Started</h3>
         <p>Install MicStatusPro, activate your license, configure your settings, and get started in minutes.</p>
-        <a href="getting-started.html" class="btn-outline">Get Started</a>
+        <a href="getting-started.html"
+   class="btn-outline"
+   onclick="clarity('event','open_getting_started')">
+   Get Started
+</a>
     </div>
 
     <div class="doc-card">
         <div class="category-label">Questions</div>
         <h3>❓ Frequently Asked Questions</h3>
         <p>Find quick answers to common questions about Zoom Sync, privacy, headsets, Push-to-Talk, licensing, and more.</p>
-        <a href="faq.html" class="btn-outline">Browse FAQ</a>
+        <a href="faq.html"
+   class="btn-outline"
+   onclick="clarity('event','open_faq')">
+   Browse FAQ
+</a>
     </div>
 
     <div class="doc-card">
         <div class="category-label">Explore</div>
         <h3>🔄 Zoom Sync Guide</h3>
         <p>Learn how Zoom Sync works, understand the available sync modes, and review application integration requirements.</p>
-        <a href="zoom-sync-modes.html" class="btn-outline">Learn More</a>
+        <a href="zoom-sync-modes.html"
+   class="btn-outline"
+   onclick="clarity('event','open_zoom_sync')">
+   Learn More
+</a>
     </div>
 
     <div class="doc-card">
         <div class="category-label">Resolve</div>
         <h3>🔧 Troubleshooting</h3>
         <p>Resolve common issues, audio device conflicts, synchronization problems, and configuration errors.</p>
-        <a href="troubleshooting.html" class="btn-outline">Fix a Problem</a>
+        <a href="getting-started.html"
+   class="btn-outline"
+   onclick="clarity('event','open_getting_started')">
+   Get Started
+</a>
     </div>
 
     <div class="doc-card">
         <div class="category-label">Learn</div>
         <h3>⚠️ Limitations & Beta Features</h3>
         <p>Review known limitations, experimental features, compatibility notes, and recommended workarounds.</p>
-        <a href="zoom-limitations.html" class="btn-outline">View Details</a>
+        <a href="zoom-limitations.html"
+   class="btn-outline"
+   onclick="clarity('event','open_limitations')">
+   View Details
+</a>
     </div>
 
 </div>
@@ -324,38 +351,86 @@
 
 <script>
 function performSearch() {
+
     const search = document
         .getElementById('docSearch')
         .value
         .toLowerCase()
         .trim();
 
-    if (search.includes('zoom')) {
+    if (typeof clarity === 'function') {
+    clarity("event", "documentation_search");
+    clarity("set", "searchTerm", search);
+}
+
+    if (
+        search.includes('nvidia') ||
+        search.includes('broadcast') ||
+	search.includes('bluetooth') ||
+	search.includes('logitech') ||        
+	search.includes('teams') ||
+        search.includes('discord') ||
+        search.includes('meet') ||
+        search.includes('headset') ||
+        search.includes('jabra') ||
+        search.includes('privacy') ||
+        search.includes('license') ||
+        search.includes('activation') ||
+        search.includes('ptt') ||
+	search.includes('microphone') ||
+	search.includes('mute') ||
+	search.includes('privacy') ||
+        search.includes('push')
+    ) {
+        window.location.href = 'faq.html';
+    }
+    else if (
+	search.includes('alt+a') ||
+	search.includes('integration') ||        
+	search.includes('zoom') ||
+        search.includes('sync') ||
+        search.includes('two-way') ||
+        search.includes('os master') ||
+        search.includes('zoom master')
+    ) {
         window.location.href = 'zoom-sync-modes.html';
     }
-    else if (search.includes('privacy')) {
-        window.location.href = 'faq.html';
-    }
-    else if (search.includes('license') || search.includes('activation')) {
-        window.location.href = 'getting-started.html';
-    }
-    else if (search.includes('headset')) {
-        window.location.href = 'faq.html';
-    }
-    else if (search.includes('push') || search.includes('ptt')) {
-        window.location.href = 'faq.html';
-    }
-    else if (search.includes('troubleshoot') || search.includes('problem')) {
+    else if (
+        search.includes('not working') ||
+	search.includes('stuck') ||
+	search.includes('broken') ||
+	search.includes('detect') ||
+	search.includes('problem') ||
+        search.includes('issue') ||
+        search.includes('error') ||
+        search.includes('border')
+    ) {
         window.location.href = 'troubleshooting.html';
     }
-    else if (search.includes('beta')) {
+    else if (
+        search.includes('install') ||
+        search.includes('setup') ||
+        search.includes('getting started')
+    ) {
+        window.location.href = 'getting-started.html';
+    }
+    else if (
+        search.includes('beta') ||
+        search.includes('limitation') ||
+        search.includes('workaround')
+    ) {
         window.location.href = 'zoom-limitations.html';
     }
     else {
-        alert('Try searching for Zoom, Privacy, Activation, Headset, Push-to-Talk, License, or Troubleshooting.');
-    }
-}
 
+    if (typeof clarity === 'function') {
+        clarity("event", "search_not_found");
+        clarity("set", "searchTerm", search);
+    }
+
+    window.location.href = 'faq.html';
+}
+}
 document
     .getElementById('docSearch')
     .addEventListener('keypress', function(e) {
