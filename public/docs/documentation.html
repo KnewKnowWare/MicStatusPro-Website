@@ -158,26 +158,32 @@
         }
 
         /* 6. The Footer */
-        .footer {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid #E2E8F0;
-        }
-        .footer a {
-            color: #64748B;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-        .footer a:hover {
-            color: #0078D7;
-            text-decoration: underline;
-        }
+         .footer {
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    flex-wrap: wrap;
+		    gap: 8px;
+		    padding: 40px 0;
+		    border-top: 1px solid #E2E8F0;
+		}
+		.footer a {
+		    color: #64748B;
+		    text-decoration: none;
+		    margin: 0 4px;
+		    font-weight: 500;
+		    font-size: 0.9rem;
+		}
+		
+		.footer a:hover {
+		    color: #0078D7;
+		    text-decoration: underline;
+		}
+		
 		.footer a:not(:last-child)::after {
-	    content: "|";
-    	margin-left: 10px;
-    	color: #94A3B8;
+		    content: " |";
+		    margin-left: 8px;
+		    color: #94A3B8;
 		}
 		.search-container {
 		    position: relative;
