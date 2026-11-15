@@ -366,11 +366,11 @@ function performSearch() {
         .value
         .toLowerCase()
         .trim();
-	console.log("SEARCH:", search);
+	
     if (typeof clarity === 'function') {
     clarity("event", "documentation_search");
     clarity("set", "searchTerm", search);
-}
+	}
 
     if (
         search.includes('nvidia') ||
