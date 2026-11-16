@@ -1,307 +1,623 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MicStatusPro - Help Document - zoom-sync-modes</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-	/* ==========================================
-	   1. RESET & GLOBAL STYLES
-	   ========================================== */
-	* {
-	    box-sizing: border-box;
-	    margin: 0;
-	    padding: 0;
-	}
-	
-	html {
-	    scroll-behavior: smooth;
-	}
-	:root {
-	    --primary: #0078D7;
-	    --primary-hover: #005A9E;
-	
-	    --text: #334155;
-	    --text-muted: #64748B;
-	
-	    --border: #E2E8F0;
-	
-	    --surface: #FFFFFF;
-	    --background: #F8FAFC;
-	}
-	body {
-	    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-	
-	    background-color: var(--background);
-	    color: var(--text);
-	
-	    line-height: 1.6;
-	
-	    display: flex;
-	    flex-direction: column;
-	    min-height: 100vh;
-	}
-	
-	a {
-	    color: var(--primary);
-	    text-decoration: none;
-	    transition: color 0.15s ease-in-out;
-	}
-	
-	a:hover {
-	    color: var(--primary-hover);
-	}
-	/* ==========================================
-	   2. LAYOUT
-	   ========================================== */
-	
-	.app-container {
-	    display: flex;
-	    max-width: 1200px;
-	    margin: 0 auto;
-	    padding: 40px 24px;
-	    gap: 32px;
-	    flex: 1;
-	    width: 100%;
-	}
-	
-	.main-content {
-	    flex: 1;
-	    min-width: 0;
-	}        
-	/* ==========================================
-		background-color: #F1F5F9;
-	}
-	.sidebar-nav a.active {
-	    background-color: #F1F5F9;
-	    color: var(--primary);
-	    font-weight: 700;
-	    border-left: 3px solid var(--primary);
-	}
-	
-	/* ==========================================
-	   4. CONTENT CARDS
-	   ========================================== */
-	
-	.content-card {
-		background: #FFFFFF;
-		border-radius: 12px;
-		padding: 32px;
-		margin-bottom: 24px;
-		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-		border: 1px solid #E2E8F0;
-	}
-	        
-	/* Specific override for the hero image layout */
-	.content-card.hero-card {
-		text-align: center;
-	}
-	        
-	.content-card.hero-card .logo {
-		max-width: 120px;
-		margin: 0 auto 20px auto;
-		display: block;
-	}
+	<head>
+		<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>MicStatusPro - Help Document - Zoom Sync Modes</title>
+				<link rel="preconnect" href="https://fonts.googleapis.com">
+					<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+						<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+							<style>
+								/* ==========================================
+								1. RESET GLOBAL STYLES
+								========================================== */
+								* {
+								box-sizing: border-box;
+								margin: 0;
+								padding: 0;
+								}
 
-	.content-card h1 {
-		font-size: 24px;
-		color: #0F172A;
-		margin-bottom: 12px;
-	}
+								html {
+								scroll-behavior: smooth;
+								}
+								:root {
+								--primary: #0078D7;
+								--primary-hover: #005A9E;
 
-	.content-card h2 {
-		font-size: 18px;
-		color: #0F172A;
-		margin-top: 16px;
-		margin-bottom: 12px;
-	}
+								--text: #334155;
+								--text-muted: #64748B;
 
-	.content-card p {
-		margin-bottom: 12px;
-		font-size: 15px;
-	}
+								--border: #E2E8F0;
 
-	.content-card ul, 
-	.content-card ol {
-		margin-left: 20px;
-		margin-bottom: 16px;
-	}
+								--surface: #FFFFFF;
+								--background: #F8FAFC;
+								}
+								body {
+								font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
-	.content-card li {
-		margin-bottom: 6px;
-	}
-	
-	/* ==========================================
-	   5. IMAGES
-	   ========================================== */
-	.doc-image {
-	    max-width: 100%;
-	    height: auto;
-	    border: 1px solid #E2E8F0;
-	    border-radius: 8px;
-	    box-shadow: 0 2px 6px rgba(0,0,0,.08);
-	    margin: 15px auto;
-	    display: block;
-	}
-	
-	.image-caption {
-	    text-align: center;
-	    font-size: 0.9rem;
-	    color: #64748B;
-	    margin-bottom: 20px;
-	}
-	
-	/* ==========================================
-	   6. FOOTER
-	   ========================================== */
-	.app-footer {
-		background: #FFFFFF;
-		border-top: 1px solid #E2E8F0;
-		padding: 24px;
-		text-align: center;
-		margin-top: auto;
-	}
+								background-color: var(--background);
+								color: var(--text);
 
-	.app-footer ul {
-		list-style: none;
-		display: flex;
-		justify-content: center;
-		gap: 24px;
-	}
+								line-height: 1.6;
 
-	.app-footer a {
-		font-size: 14px;
-		color: #64748B;
-	}
+								display: flex;
+								flex-direction: column;
+								min-height: 100vh;
+								}
 
-	.app-footer a:hover {
-		color: #0078D7;
-	}
-	
-	/* ==========================================
-	   7. ANCHOR SCROLLING
-	   ========================================== */
-	
-	section {
-		scroll-margin-top: 40px;
-	}
-    </style>
-</head>
-<body>
-    
-    <div class="app-container">
-        
-        <!-- Navigation Sidebar -->
-        <aside class="sidebar">
-            <nav class="sidebar-nav">
-                <h3>Zoom Sync Modes</h3>
-                <ul>
-                    <li><a href="#overview">Overview</a></li>
-                    <li><a href="#two-way">Two-Way Sync</a></li>
-                    <li><a href="#os-master">OS Master</a></li>
-                    <li><a href="#zoom-master">Zoom Master</a></li>
-                    <li><a href="#comparison">Quick Comparison</a></li>
-                </ul>
-            </nav>
-        </aside>
+								a {
+								color: var(--primary);
+								text-decoration: none;
+								transition: color 0.15s ease-in-out;
+								}
 
-        <!-- Main Content Cards -->
-        <main class="main-content">
-            
-            <section id="overview" class="content-card hero-card">
-                <img src="../logo.png" alt="MicStatusPro Logo" class="logo">
-                <h1>Understanding Zoom Sync Modes in MicStatusPro</h1>
-                <p><em>MicStatusPro</em> gives you flexible control over how your microphone works with Zoom. Whether you control your microphone with keyboard shortcuts, hardware buttons, or Zoom itself, MicStatusPro offers three sync modes to match your preferred workflow.</p>
-                <p>By default, MicStatusPro uses Two-Way Sync to keep Zoom and your microphone status synchronized. Read on to explore how each mode works and find the one that best fits your daily routine!</p>
-                <p><strong>Recommended:</strong> Most users should keep the default <strong>Two-Way Sync</strong> mode. It automatically keeps Zoom and your microphone status synchronized in both directions.</p>
-            </section>
+								a:hover {
+								color: var(--primary-hover);
+								}
+								/* ==========================================
+								2. LAYOUT
+								========================================== */
 
-            <section id="two-way" class="content-card">
-                <h2>Two-Way Sync (Default)</h2>
-                <p>Two-Way Sync keeps your operating system and Zoom synchronized. When this mode is active, any change made on one side immediately updates the other.</p>
-                <ul>
-                    <li><strong>How it works:</strong> Muting at the OS level (via hardware buttons, hotkeys, or MicStatusPro) automatically updates Zoom's mute status. Likewise, clicking Zoom's mute button immediately updates your microphone's operating-system mute status.</li>
-                    <li><strong>Pros:</strong> Everything stays seamlessly synchronized. Zoom and your computer always stay aligned, regardless of where the mute change originates.</li>
-                </ul>
-            </section>
+								.app-container {
+								display: flex;
+								max-width: 1200px;
+								margin: 0 auto;
+								padding: 40px 24px;
+								gap: 32px;
+								flex: 1;
+								width: 100%;
+								}
 
-            <section id="os-master" class="content-card">
-                <h2>OS Master</h2>
-                <p>In OS Master mode, your computer controls Zoom's microphone status.</p>
-                <ul>
-                    <li><strong>How it works:</strong> Whenever you mute or unmute using system shortcuts, Push-To-Talk, or MicStatusPro, the app clicks the corresponding button in Zoom for you. Changes only flow one way: from your computer to Zoom.</li>
-                    <li><strong>Pros:</strong> Ideal for users who primarily control their microphone with keyboard shortcuts or custom hotkeys.</li>
-                    <li><strong>Cons:</strong> If you manually click the mute button inside the Zoom window, Zoom will not push that status change back to your OS hardware, which can cause Zoom and your microphone status to become unsynchronized.</li>
-                </ul>
-            </section>
+								.main-content {
+								flex: 1;
+								min-width: 0;
+								}
+								/* ==========================================
+								3. SIDEBAR NAVIGATION
+								========================================== */
 
-            <section id="zoom-master" class="content-card">
-                <h2>Zoom Master</h2>
-                <p>In Zoom Master mode, Zoom becomes the primary controller of your microphone status.</p>
-                <ul>
-                    <li><strong>How it works:</strong> Zoom controls your microphone's operating-system mute status. Any mute or unmute action performed in Zoom is automatically reflected by your computer.</li>
-                    <li><strong>Pros:</strong> Ideal for users who primarily use Zoom's mute button during meetings.</li>
-                    <li><strong>Cons:</strong> If you attempt to mute your hardware directly using MicStatusPro or system triggers, the request is ignored so Zoom remains in control of the microphone state.</li>
-                </ul>
-            </section>
+								.sidebar {
+								width: 260px;
+								flex-shrink: 0;
+								}
 
-            <section id="comparison" class="content-card">
-                <h2>Quick Comparison</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Sync Mode</th>
-                            <th>Primary Control Source</th>
-                            <th>Ideal For</th>
-                            <th>Key Benefit</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Two-Way Sync</td>
-                            <td>Both OS & Zoom</td>
-                            <td>Most Users</td>
-                            <td>Keeps your microphone and Zoom synchronized in both directions.</td>
-                        </tr>
-                        <tr>
-                            <td>OS Master</td>
-                            <td>OS / Hardware</td>
-                            <td>Keyboard & Hotkey Users</td>
-                            <td>Ensures hardware triggers always override and drive Zoom.</td>
-                        </tr>
-                        <tr>
-                            <td>Zoom Master</td>
-                            <td>Zoom Application UI</td>
-                            <td>Zoom Interface Users</td>
-                            <td>Keeps Zoom in control of your microphone status.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
+								.sidebar-nav {
+								position: sticky;
+								top: 40px;
+								background: var(--surface);
+								border-radius: 12px;
+								padding: 24px 16px;
+								border: 1px solid var(--border);
+								box-shadow:
+								0 4px 6px -1px rgba(0,0,0,.05),
+								0 2px 4px -1px rgba(0,0,0,.03);
+								}
+								.sidebar-nav h3 {
+								font-size: 12px;
+								text-transform: uppercase;
+								letter-spacing: 0.05em;
+								color: #94A3B8;
+								margin-bottom: 12px;
+								padding-left: 12px;
+								}
+								.sidebar-nav ul {
+								list-style: none;
+								}
+								.sidebar-nav li {
+								margin-bottom: 4px;
+								}
+								.sidebar-nav a {
+								display: block;
+								padding: 8px 12px;
+								border-radius: 6px;
+								color: #334155;
+								font-weight: 500;
+								font-size: 14px;
+								scroll-behavior: smooth;
+								}
+								.sidebar-nav a:hover {
+								color: var(--primary);
+								background-color: #F1F5F9;
+								}
+								.sidebar-nav a.active {
+								background-color: #F1F5F9;
+								color: var(--primary);
+								font-weight: 700;
+								border-left: 3px solid var(--primary);
+								}
 
-        </main>
-    </div>
 
-    <!-- Global Footer -->
-    <footer class="app-footer">
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../privacy.html">Privacy Policy</a></li>
-            <li><a href="../eula.html">EULA</a></li>
-            <li><a href="documentation.html">Documentation Hub</a></li>
-        </ul>
-    </footer>
-<script>
-document.querySelectorAll('.sidebar-nav a').forEach(link => {
-    link.addEventListener('click', function() {
-        document.querySelectorAll('.sidebar-nav a')
-            .forEach(a => a.classList.remove('active'));
-        this.classList.add('active');
-        });
-    });
-</script>
-</body>
+								/* ==========================================
+								4. CONTENT CARDS
+								========================================== */
+
+								.content-card {
+								background: #FFFFFF;
+								border-radius: 12px;
+								padding: 32px;
+								margin-bottom: 24px;
+								box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+								border: 1px solid #E2E8F0;
+								}
+
+								/* Specific override for the hero image layout */
+								.content-card.hero-card {
+								text-align: center;
+								}
+
+								.content-card.hero-card .logo {
+								max-width: 120px;
+								margin: 0 auto 20px auto;
+								display: block;
+								}
+
+								.content-card h1 {
+								font-size: 24px;
+								color: #0F172A;
+								margin-bottom: 12px;
+								}
+
+								.content-card h2 {
+								font-size: 18px;
+								color: #0F172A;
+								margin-top: 16px;
+								margin-bottom: 12px;
+								}
+
+								.content-card p {
+								margin-bottom: 12px;
+								font-size: 15px;
+								}
+
+								.content-card ul,
+								.content-card ol {
+								margin-left: 20px;
+								margin-bottom: 16px;
+								}
+
+								.content-card li {
+								margin-bottom: 6px;
+								}
+
+								.toc-card {
+								background: #f8f9fa;
+								border: 1px solid #e5e7eb;
+								border-radius: 10px;
+								padding: 16px;
+								margin-bottom: 24px;
+								}
+
+								.toc-card h3 {
+								margin-top: 0;
+								}
+
+								.toc-card ul {
+								padding-left: 20px;
+								margin-bottom: 0;
+								}
+
+								.toc-card li {
+								margin-bottom: 8px;
+								}
+								/* Hidden by default (desktop) */
+								.toc-card {
+								display: none;
+								}
+								/* Hide sidebar on phones */
+								@media (max-width: 768px) {
+								.sidebar {
+								display: none;
+								}
+								/* Show TOC on phones */
+								.toc-card {
+								display: block;
+								}
+								.content {
+								width: 100%;
+								margin-left: 0;
+								}
+								}
+								/* Hide mobile TOC on desktop */
+								.toc-fab,
+								.toc-panel {
+								display: none;
+								}
+
+								@media (max-width: 768px) {
+
+								/* Hide desktop sidebar */
+								.sidebar {
+								display: none;
+								}
+
+								/* Floating button */
+								.toc-fab {
+								display: block;
+								position: fixed;
+								bottom: 20px;
+								right: 20px;
+								z-index: 1000;
+
+								padding: 12px 16px;
+								border: none;
+								border-radius: 999px;
+
+								background: #2563eb;
+								color: white;
+
+								font-size: 14px;
+								font-weight: 600;
+
+								box-shadow: 0 4px 12px rgba(0,0,0,.2);
+								}
+
+								/* Slide-up panel */
+								.toc-panel {
+								display: block;
+
+								position: fixed;
+								left: 0;
+								right: 0;
+								bottom: -100%;
+
+								background: white;
+								border-top-left-radius: 16px;
+								border-top-right-radius: 16px;
+
+								box-shadow: 0 -4px 16px rgba(0,0,0,.2);
+
+								padding: 16px;
+
+								z-index: 1001;
+
+								transition: bottom .3s ease;
+
+								max-height: 70vh;
+								overflow-y: auto;
+								}
+
+								.toc-panel.open {
+								bottom: 0;
+								}
+
+								.toc-header {
+								display: flex;
+								justify-content: space-between;
+								align-items: center;
+								margin-bottom: 12px;
+								}
+
+								.toc-header button {
+								border: none;
+								background: none;
+								font-size: 18px;
+								cursor: pointer;
+								}
+
+								.toc-panel nav a {
+								display: block;
+								padding: 10px 0;
+								text-decoration: none;
+								border-bottom: 1px solid #eee;
+								}
+								}
+
+								/* ==========================================
+								5. IMAGES
+								========================================== */
+								.doc-image {
+								max-width: 100%;
+								height: auto;
+								border: 1px solid #E2E8F0;
+								border-radius: 8px;
+								box-shadow: 0 2px 6px rgba(0,0,0,.08);
+								margin: 15px auto;
+								display: block;
+								}
+
+								.image-caption {
+								text-align: center;
+								font-size: 0.9rem;
+								color: #64748B;
+								margin-bottom: 20px;
+								}
+
+								/* ==========================================
+								6. FOOTER
+								========================================== */
+								.app-footer {
+								background: #FFFFFF;
+								border-top: 1px solid #E2E8F0;
+								padding: 24px;
+								text-align: center;
+								margin-top: auto;
+								}
+
+								.app-footer ul {
+								list-style: none;
+								display: flex;
+								justify-content: center;
+								gap: 24px;
+								}
+
+								.app-footer a {
+								font-size: 14px;
+								color: #64748B;
+								}
+
+								.app-footer a:hover {
+								color: #0078D7;
+								}
+
+								/* ==========================================
+								7. ANCHOR SCROLLING
+								========================================== */
+
+								section {
+								scroll-margin-top: 40px;
+								}
+								/* ==========================================
+								8. Table
+								========================================== */
+
+								.comparison-table {
+								width: 100%;
+								border-collapse: collapse;
+								margin: 20px 0;
+								border: 1px solid #E2E8F0;
+								border-radius: 8px;
+								overflow: hidden;
+								}
+
+								.comparison-table th {
+								background-color: #F8FAFC;
+								color: #0F172A;
+								text-align: left;
+								padding: 12px;
+								border-bottom: 1px solid #E2E8F0;
+								font-weight: 600;
+								}
+
+								.comparison-table td {
+								padding: 12px;
+								border-bottom: 1px solid #E2E8F0;
+								vertical-align: top;
+								}
+
+								.comparison-table tr:last-child td {
+								border-bottom: none;
+								}
+							</style>
+						</head>
+	<body>
+
+		<div class="app-container">
+
+			<!-- Navigation Sidebar -->
+			<aside class="sidebar">
+				<nav class="sidebar-nav">
+					<h3>Zoom Sync Modes</h3>
+					<ul>
+						<li>
+							<a href="#overview">Overview</a>
+						</li>
+						<li>
+							<a href="#which-mode">Which Mode to Use</a>
+						</li>
+						<li>
+							<a href="#two-way">Two-Way Sync</a>
+						</li>
+						<li>
+							<a href="#os-master">OS Master</a>
+						</li>
+						<li>
+							<a href="#zoom-master">Zoom Master</a>
+						</li>
+						<li>
+							<a href="#comparison">Quick Comparison</a>
+						</li>
+						<li>
+							<a href="#troubleshooting">Troubleshooting</a>
+						</li>
+					</ul>
+				</nav>
+			</aside>
+			
+			<!-- Main Content Cards -->
+			<main class="main-content">
+
+				<section id="overview" class="content-card hero-card">
+					<img src="../logo.png" alt="MicStatusPro Logo" class="logo">
+						<h1>Understanding Zoom Sync Modes in MicStatusPro</h1>
+						<p>
+							<em>MicStatusPro</em> gives you flexible control over how your microphone works with Zoom. Whether you control your microphone with keyboard shortcuts, hardware buttons, or Zoom itself, MicStatusPro offers three sync modes to match your preferred workflow.
+						</p>
+						<p>By default, MicStatusPro uses Two-Way Sync to keep Zoom and your microphone status synchronized. Read on to explore how each mode works and find the one that best fits your daily routine!</p>
+						<p>
+							<strong>Recommended:</strong> Most users should keep the default <strong>Two-Way Sync</strong> mode. It automatically keeps Zoom and your microphone status synchronized in both directions.
+						</p>
+					</section>
+				<section id="which-mode" class="content-card">
+					<h2>Which Mode Should I Use?</h2>
+					<p>
+						<strong>Choose Two-Way Sync if:</strong> you want Zoom and your microphone to always stay synchronized. Recommended for most users.
+					</p>
+					<p>
+						<strong>Choose OS Master if:</strong> you primarily mute and unmute using hardware buttons, keyboard shortcuts, or Push-To-Talk.
+					</p>
+					<p>
+						<strong>Choose Zoom Master if:</strong> you prefer using Zoom's microphone controls and want Zoom to manage microphone state.
+					</p>
+				</section>
+				<section id="two-way" class="content-card">
+					<h2>Two-Way Sync (Default) | OS Microphone ↔ Zoom</h2>
+					<p>Two-Way Sync keeps your computer's microphone and Zoom synchronized. When this mode is active, any change made on one side immediately updates the other.</p>
+					<ul>
+						<li>
+							<strong>How it works:</strong> Muting at the OS level (via hardware buttons, hotkeys, or MicStatusPro) automatically updates Zoom's mute status. Likewise, clicking Zoom's mute button immediately updates your microphone's operating-system mute status.
+						</li>
+						<li>
+							<strong>Pros:</strong> You never have to wonder whether Zoom and your microphone are muted differently. A change in either place is automatically reflected everywhere. Zoom and your microphone always stay aligned.
+						</li>
+					</ul>
+				</section>
+
+				<section id="os-master" class="content-card">
+					<h2>OS Master | OS Microphone → Zoom</h2>
+					<p>In OS Master mode, your computer controls Zoom's microphone status.</p>
+					<ul>
+						<li>
+							<strong>How it works:</strong> Whenever you mute or unmute using system shortcuts, Push-To-Talk, or MicStatusPro, the app clicks the corresponding button in Zoom for you. Changes only flow one way: from your computer to Zoom.
+						</li>
+						<li>
+							<strong>Pros:</strong> Ideal for users who primarily control their microphone with keyboard shortcuts or custom hotkeys.
+						</li>
+						<li>
+							<strong>Cons:</strong> If you manually click the mute button inside the Zoom window, Zoom will not push that status change back to your OS hardware, which can cause Zoom and your microphone status to become unsynchronized.
+						</li>
+					</ul>
+					<p>
+						<strong>Example:</strong> Pressing a mute button on your headset or using a keyboard shortcut automatically updates Zoom's mute status.
+					</p>
+				</section>
+
+				<section id="zoom-master" class="content-card">
+					<h2>Zoom Master | OS Microphone ← Zoom</h2>
+					<p>In Zoom Master mode, Zoom becomes the primary controller of your microphone status.</p>
+					<ul>
+						<li>
+							<strong>How it works:</strong> Zoom controls your microphone's operating-system mute status. Any mute or unmute action performed in Zoom is automatically reflected by your computer.
+						</li>
+						<li>
+							<strong>Pros:</strong> Zoom Master is useful in environments where meeting applications must remain the authoritative source for microphone state and users primarily interact with Zoom's controls.
+						</li>
+						<li>
+							<strong>Cons:</strong> If you attempt to mute your hardware directly using MicStatusPro or system triggers, the request is intentionally blocked so Zoom remains the authoritative controller of microphone state.
+						</li>
+						</ul>
+					<p>
+						<strong>Example:</strong> Clicking Mute in Zoom automatically mutes your microphone at the system level.
+					</p>
+				</section>
+
+				<section id="comparison" class="content-card">
+					<h2>Quick Comparison</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Sync Mode</th>
+								<th>Primary Control Source</th>
+								<th>Ideal For</th>
+								<th>Key Benefit</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Two-Way Sync</td>
+								<td>Both OS & Zoom</td>
+								<td>Most Users</td>
+								<td>Keeps your microphone and Zoom synchronized in both directions.</td>
+							</tr>
+							<tr>
+								<td>OS Master</td>
+								<td>OS / Hardware</td>
+								<td>Keyboard & Hotkey Users</td>
+								<td>Ensures hardware triggers always override and drive Zoom.</td>
+							</tr>
+							<tr>
+								<td>Zoom Master</td>
+								<td>Zoom Application UI</td>
+								<td>Zoom Interface Users</td>
+								<td>Keeps Zoom in control of your microphone status.</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section id="troubleshooting" class="content-card">
+					<h2>Why are Zoom and my microphone showing different mute states?</h2>
+					<p>If Zoom and your microphone appear out of sync:</p>
+					<ol>
+						<li>Verify which Zoom Sync Mode is currently selected.</li>
+						<li>Two-Way Sync is recommended if you want both systems to remain synchronized automatically.</li>
+						<li>
+							<strong>Expected behavior:</strong> In OS Master and Zoom Master modes, Zoom and your microphone may temporarily appear out of sync because only one side is allowed to control the other.
+						</li>
+					</ol>
+				</section>
+			</main>
+		</div>
+
+		<!-- Global Footer -->
+		<footer class="app-footer">
+			<ul>
+				<li>
+					<a href="../index.html">Home</a>
+				</li>
+				<li>
+					<a href="../privacy.html">Privacy Policy</a>
+				</li>
+				<li>
+					<a href="../eula.html">EULA</a>
+				</li>
+				<li>
+					<a href="documentation.html">Documentation Hub</a>
+				</li>
+			</ul>
+		</footer>
+		<script>
+			document.querySelectorAll('.sidebar-nav a').forEach(link => {
+			link.addEventListener('click', function() {
+			document.querySelectorAll('.sidebar-nav a')
+			.forEach(a => a.classList.remove('active'));
+			this.classList.add('active');
+			});
+			});
+		</script>
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+
+			// Copy sidebar nav into mobile TOC
+			const sidebarNav = document.querySelector('.sidebar-nav');
+			const mobileToc = document.getElementById('mobile-toc');
+
+			if (sidebarNav && mobileToc) {
+			mobileToc.innerHTML = sidebarNav.innerHTML;
+			}
+
+			// Open panel
+			document.getElementById('toc-button')
+			.addEventListener('click', () => {
+			document.getElementById('toc-panel')
+			.classList.add('open');
+			});
+
+			// Close panel
+			document.getElementById('toc-close')
+			.addEventListener('click', () => {
+			document.getElementById('toc-panel')
+			.classList.remove('open');
+			});
+
+			// Close after user taps a link
+			mobileToc.addEventListener('click', (e) => {
+			if (e.target.tagName === 'A') {
+			document.getElementById('toc-panel')
+			.classList.remove('open');
+			}
+			});
+			});
+		</script>
+		<button id="toc-button" class="toc-fab">
+			📑 Contents
+		</button>
+
+		<div id="toc-panel" class="toc-panel">
+			<div class="toc-header">
+				<strong>On This Page</strong>
+				<button id="toc-close">✕</button>
+			</div>
+
+			<nav id="mobile-toc"></nav>
+		</div>
+	</body>
 </html>
