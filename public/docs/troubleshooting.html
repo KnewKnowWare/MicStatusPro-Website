@@ -3,114 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Troubleshooting Guide - MicStatusPro</title>
+    <title>MicStatusPro - Troubleshooting Guide</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-	/* ==========================================
-	   1. RESET & GLOBAL STYLES
-	   ========================================== */
-	* {
-	    box-sizing: border-box;
-	    margin: 0;
-	    padding: 0;
-	}
-	
-	html {
-	    scroll-behavior: smooth;
-	}
-	:root {
-	    --primary: #0078D7;
-	    --primary-hover: #005A9E;
-	
-	    --text: #334155;
-	    --text-muted: #64748B;
-	
-	    --border: #E2E8F0;
-	
-	    --surface: #FFFFFF;
-	    --background: #F8FAFC;
-	}
-	body {
-	    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-	
-	    background-color: var(--background);
-	    color: var(--text);
-	
-	    line-height: 1.6;
-	
-	    display: flex;
-	    flex-direction: column;
-	    min-height: 100vh;
-	}
-	
-	a {
-	    color: var(--primary);
-	    text-decoration: none;
-	    transition: color 0.15s ease-in-out;
-	}
-	
-	a:hover {
-	    color: var(--primary-hover);
-	}
-	/* ==========================================
-	   2. LAYOUT
-	   ========================================== */
-	
-	.app-container {
-	    display: flex;
-	    max-width: 1200px;
-	    margin: 0 auto;
-	    padding: 40px 24px;
-	    gap: 32px;
-	    flex: 1;
-	    width: 100%;
-	}
-	
-	.main-content {
-	    flex: 1;
-	    min-width: 0;
-	}        
-	/* ==========================================
-	   3. SIDEBAR NAVIGATION
-	   ========================================== */
-	
-	.sidebar {
+        /* ==========================================
+           1. RESET & GLOBAL STYLES
+		========================================== */
+		* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		}
+
+		html {
+		scroll-behavior: smooth;
+		}
+		:root {
+		--primary: #0078D7;
+		--primary-hover: #005A9E;
+
+		--text: #334155;
+		--text-muted: #64748B;
+
+		--border: #E2E8F0;
+
+		--surface: #FFFFFF;
+		--background: #F8FAFC;
+		}
+		body {
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+		background-color: var(--background);
+		color: var(--text);
+
+		line-height: 1.6;
+
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+		}
+
+		a {
+		color: var(--primary);
+		text-decoration: none;
+		transition: color 0.15s ease-in-out;
+		}
+
+		a:hover {
+		color: var(--primary-hover);
+		}
+
+
+		/* ==========================================
+		2. LAYOUT
+		========================================== */
+
+		.app-container {
+		display: flex;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 40px 24px;
+		gap: 32px;
+		flex: 1;
+		width: 100%;
+		}
+
+		.main-content {
+		flex: 1;
+		min-width: 0;
+		}
+		/* ==========================================
+		3. SIDEBAR NAVIGATION
+		========================================== */
+
+		.sidebar {
 		width: 260px;
 		flex-shrink: 0;
-	}
-	
-	.sidebar-nav {
-	  	position: sticky;
+		}
+
+		.sidebar-nav {
+		position: sticky;
 		top: 40px;
-	   	background: var(--surface);
+		background: var(--surface);
 		border-radius: 12px;
-	   	padding: 24px 16px;
-	   	border: 1px solid var(--border);
-	   	box-shadow:
-		  0 4px 6px -1px rgba(0,0,0,.05),
-		  0 2px 4px -1px rgba(0,0,0,.03);
-	}
-	
-	.sidebar-nav h3 {
+		padding: 24px 16px;
+		border: 1px solid var(--border);
+		box-shadow:
+		0 4px 6px -1px rgba(0,0,0,.05),
+		0 2px 4px -1px rgba(0,0,0,.03);
+		}
+
+		.sidebar-nav h3 {
 		font-size: 12px;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
 		color: #94A3B8;
 		margin-bottom: 12px;
 		padding-left: 12px;
-	}
-	
-	.sidebar-nav ul {
+		}
+
+		.sidebar-nav ul {
 		list-style: none;
-	}
-	
-	.sidebar-nav li {
+		}
+
+		.sidebar-nav li {
 		margin-bottom: 4px;
-	}
-	
-	.sidebar-nav a {
+		}
+
+		.sidebar-nav a {
 		display: block;
 		padding: 8px 12px;
 		border-radius: 6px;
@@ -118,126 +120,212 @@
 		font-weight: 500;
 		font-size: 14px;
 		scroll-behavior: smooth;
-	}
-	
-	.sidebar-nav a:hover {
+		}
+
+
+		.sidebar-nav a:hover {
 		color: var(--primary);
 		background-color: #F1F5F9;
-	}
-	.sidebar-nav a.active {
-	    background-color: #F1F5F9;
-	    color: var(--primary);
-	    font-weight: 700;
-	    border-left: 3px solid var(--primary);
-	}
-	
-	/* ==========================================
-	   4. CONTENT CARDS
-	   ========================================== */
-	
-	.content-card {
+		}
+		.sidebar-nav a.active {
+		background-color: #F1F5F9;
+		color: var(--primary);
+		font-weight: 700;
+		border-left: 3px solid var(--primary);
+		}
+
+		/* ==========================================
+		4. CONTENT CARDS
+		========================================== */
+
+		.content-card {
 		background: #FFFFFF;
 		border-radius: 12px;
 		padding: 32px;
 		margin-bottom: 24px;
 		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 		border: 1px solid #E2E8F0;
-	}
-	        
-	/* Specific override for the hero image layout */
-	.content-card.hero-card {
+		}
+
+		/* Specific override for the hero image layout */
+		.content-card.hero-card {
 		text-align: center;
-	}
-	        
-	.content-card.hero-card .logo {
+		}
+
+		.content-card.hero-card .logo {
 		max-width: 120px;
 		margin: 0 auto 20px auto;
 		display: block;
-	}
+		}
 
-	.content-card h1 {
+		.content-card h1 {
 		font-size: 24px;
 		color: #0F172A;
 		margin-bottom: 12px;
-	}
+		}
 
-	.content-card h2 {
+		.content-card h2 {
 		font-size: 18px;
 		color: #0F172A;
 		margin-top: 16px;
 		margin-bottom: 12px;
-	}
+		}
 
-	.content-card p {
+		.content-card p {
 		margin-bottom: 12px;
 		font-size: 15px;
-	}
+		}
 
-	.content-card ul, 
-	.content-card ol {
+		.content-card ul,
+		.content-card ol {
 		margin-left: 20px;
 		margin-bottom: 16px;
-	}
+		}
 
-	.content-card li {
+		.content-card li {
 		margin-bottom: 6px;
-	}
-	
-	/* ==========================================
-	   5. IMAGES
-	   ========================================== */
-	.doc-image {
-	    max-width: 100%;
-	    height: auto;
-	    border: 1px solid #E2E8F0;
-	    border-radius: 8px;
-	    box-shadow: 0 2px 6px rgba(0,0,0,.08);
-	    margin: 15px auto;
-	    display: block;
-	}
-	
-	.image-caption {
-	    text-align: center;
-	    font-size: 0.9rem;
-	    color: #64748B;
-	    margin-bottom: 20px;
-	}
-	
-	/* ==========================================
-	   6. FOOTER
-	   ========================================== */
-	.app-footer {
+		}
+		
+		/* Hide mobile TOC on desktop */
+		.toc-fab,
+		.toc-panel {
+		display: none;
+		}
+
+		@media (max-width: 768px) {
+
+		/* Hide desktop sidebar */
+		.sidebar {
+		display: none;
+		}
+
+		/* Floating button */
+		.toc-fab {
+		display: block;
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		z-index: 1000;
+
+		padding: 12px 16px;
+		border: none;
+		border-radius: 999px;
+
+		background: #2563eb;
+		color: white;
+
+		font-size: 14px;
+		font-weight: 600;
+
+		box-shadow: 0 4px 12px rgba(0,0,0,.2);
+		}
+
+		/* Slide-up panel */
+		.toc-panel {
+		display: block;
+
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: -100%;
+
+		background: white;
+		border-top-left-radius: 16px;
+		border-top-right-radius: 16px;
+
+		box-shadow: 0 -4px 16px rgba(0,0,0,.2);
+
+		padding: 16px;
+
+		z-index: 1001;
+
+		transition: bottom .3s ease;
+
+		max-height: 70vh;
+		overflow-y: auto;
+		}
+
+		.toc-panel.open {
+		bottom: 0;
+		}
+
+		.toc-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 12px;
+		}
+
+		.toc-header button {
+		border: none;
+		background: none;
+		font-size: 18px;
+		cursor: pointer;
+		}
+
+		.toc-panel nav a {
+		display: block;
+		padding: 10px 0;
+		text-decoration: none;
+		border-bottom: 1px solid #eee;
+		}
+		}
+
+		/* ==========================================
+		5. IMAGES
+		========================================== */
+		.doc-image {
+		max-width: 100%;
+		height: auto;
+		border: 1px solid #E2E8F0;
+		border-radius: 8px;
+		box-shadow: 0 2px 6px rgba(0,0,0,.08);
+		margin: 15px auto;
+		display: block;
+		}
+
+		.image-caption {
+		text-align: center;
+		font-size: 0.9rem;
+		color: #64748B;
+		margin-bottom: 20px;
+		}
+
+		/* ==========================================
+		6. FOOTER
+		========================================== */
+		.app-footer {
 		background: #FFFFFF;
 		border-top: 1px solid #E2E8F0;
 		padding: 24px;
 		text-align: center;
 		margin-top: auto;
-	}
+		}
 
-	.app-footer ul {
+		.app-footer ul {
 		list-style: none;
 		display: flex;
 		justify-content: center;
 		gap: 24px;
-	}
+		}
 
-	.app-footer a {
+		.app-footer a {
 		font-size: 14px;
 		color: #64748B;
-	}
+		}
 
-	.app-footer a:hover {
+		.app-footer a:hover {
 		color: #0078D7;
-	}
-	
-	/* ==========================================
-	   7. ANCHOR SCROLLING
-	   ========================================== */
-	
-	section {
+		}
+
+		/* ==========================================
+		7. ANCHOR SCROLLING
+		========================================== */
+
+		section {
 		scroll-margin-top: 40px;
-	}
-    </style>
+		}
+	</style>
 </head>
 <body>
     
@@ -259,139 +347,186 @@
         </aside>
 
         <!-- Main Content Cards -->
-        <main class="main-content">
-            
-            <section id="welcome" class="content-card hero-card">
-                <img src="../logo.png" alt="MicStatusPro Logo" class="logo">
-                <h1>Troubleshooting Guide</h1>
-                <p>This guide provides instructions for diagnosing and resolving common technical issues encountered while using MicStatusPro.</p>
-            </section>
+		<main class="main-content">
 
-            <section id="border-issues" class="content-card">
-                <h2>Border Not Showing</h2>
-                <p><strong>🔧 Quick Fix Checklist</strong>🔧</p>
-<ol>
-<li>Verify "Show Border" is enabled in Basic Settings</li>
- <li>Confirm the correct Active Microphone is selected</li>
-<li>Verify the border is assigned to the correct monitor</li>
-</ol>
-</p>
-                <ul>
-                    <li><strong>Check Basic Settings:</strong> Open the system tray menu and ensure "Show Border" is checked under the Muted and Unmuted Indicators.
-<img src="images/show-border.png"
-		     alt="Show Border is checked under the Muted and Unmuted Indicators."
-		     class="doc-image">
+			<section id="welcome" class="content-card hero-card">
+				<img src="../logo.png" alt="MicStatusPro Logo" class="logo">
+					<h1>Troubleshooting Guide</h1>
+					<p>This guide provides instructions for diagnosing and resolving common technical issues encountered while using MicStatusPro.</p>
+				</section>
 
-</li>
-                    <li><strong>Check Active Microphone:</strong> Ensure MicStatusPro is monitoring the correct microphone. Open settings and check the "Active Microphone". If you need to switch microphones, click on <strong>Change Microphone</strong> to open the Windows Recording Device window.</li>
-<img src="images/active-microphone.png"
-		     alt="Show the Active Microphone and Change Microphone box"
-		     class="doc-image">
+			<section id="border-issues" class="content-card">
+				<h2>Border Not Showing</h2>
+				<p>
+					<strong>🔧 Quick Fix Checklist</strong>🔧
+				</p>
+				<ol>
+					<li>Verify "Show Border" is enabled in Basic Settings</li>
+					<li>Confirm the correct Active Microphone is selected</li>
+					<li>Verify the border is assigned to the correct monitor</li>
+				</ol>
+				</p>
+				<ul>
+					<li>
+						<strong>Check Basic Settings:</strong> Open the system tray menu and ensure "Show Border" is checked under the Muted and Unmuted Indicators.
+						<img src="images/show-border.png"
+									 alt="Show Border is checked under the Muted and Unmuted Indicators."
+									 class="doc-image">
 
-                    <li><strong>Multi-Monitor Settings:</strong> If using multiple screens, check the Pro Features tab to ensure the border is set to display on the correct active monitor under Multi-Monitor Support.
-<img src="images/mulit-monitor-support.png"
-		     alt="Shows Multi-Monitor Support section"
-		     class="doc-image">
-</li>
-                </ul>
-<div class="related-articles">
-    <strong>Learn More:</strong>
-    <a href="getting-started.html">Getting Started Guide</a>
-</div>
+						</li>
+					<li>
+						<strong>Check Active Microphone:</strong> Ensure MicStatusPro is monitoring the correct microphone. Open settings and check the "Active Microphone". If you need to switch microphones, click on <strong>Change Microphone</strong> to open the Windows Recording Device window.
+					</li>
+					<img src="images/active-microphone.png"
+								 alt="Show the Active Microphone and Change Microphone box"
+								 class="doc-image">
 
-            </section>
-<section id="audio-mismatch" class="content-card">
-    <h2>Why Is My Screen Border Dashed?</h2>
+						<li>
+							<strong>Multi-Monitor Settings:</strong> If using multiple screens, check the Pro Features tab to ensure the border is set to display on the correct active monitor under Multi-Monitor Support.
+							<img src="images/mulit-monitor-support.png"
+										 alt="Shows Multi-Monitor Support section"
+										 class="doc-image">
+							</li>
+					</ul>
+				<div class="related-articles">
+					<strong>Learn More:</strong>
+					<a href="getting-started.html">Getting Started Guide</a>
+				</div>
 
-<p><strong>MicStatusPro detected that Windows is using different microphones for general audio and communication apps.</strong> This is not an error, but some applications may use a different microphone than expected until the microphones match.</p>
-<p><strong>🔧 Quick Fix Checklist</strong>🔧</p>
-<ol>
-<li>Click <strong>Fix Microphone Settings</strong></li>
-<li>Set desired microphone to default</li>
-<li>The dashed border will automatically return to a solid border.</li>
-</ol>
-    
-<h3>What Causes This?</h3>
-    <p>Windows can assign:</p>
-    <ul>
-	<li><strong>Default Microphone</strong> for general audio and recording</li>
-	<li><strong>Communications Microphone</strong> for calling applications</li>        
-	            </ul>
-	<p>When these point to different devices, some applications may use one microphone while others use another.</p>
-    <p><strong>Example:</strong></p>
-	<ul>
-	<li>Default Microphone: <p>Realtek(R) Audio</p></li>        
-	<li>Communication Microphone: <p>HD Pro Webcam C920</p></li>
-	</ul>
-	<p>In this situation, Zoom may use one microphone while another application uses the other.</p>
+			</section>
+			<section id="audio-mismatch" class="content-card">
+				<h2>Why Is My Screen Border Dashed?</h2>
+
+				<p>
+					<strong>MicStatusPro detected that Windows is using different microphones for general audio and communication apps.</strong> This is not an error, but some applications may use a different microphone than expected until the microphones match.
+				</p>
+				<p>
+					<strong>🔧 Quick Fix Checklist</strong>🔧
+				</p>
+				<ol>
+					<li>
+						Click <strong>Fix Microphone Settings</strong>
+					</li>
+					<li>Set desired microphone to default</li>
+					<li>The dashed border will automatically return to a solid border.</li>
+				</ol>
+
+				<h3>What Causes This?</h3>
+				<p>Windows can assign:</p>
+				<ul>
+					<li>
+						<strong>Default Microphone</strong> for general audio and recording
+					</li>
+					<li>
+						<strong>Communications Microphone</strong> for calling applications
+					</li>
+				</ul>
+				<p>When these point to different devices, some applications may use one microphone while others use another.</p>
+				<p>
+					<strong>Example:</strong>
+				</p>
+				<ul>
+					<li>
+						Default Microphone: <p>Realtek(R) Audio</p>
+					</li>
+					<li>
+						Communication Microphone: <p>HD Pro Webcam C920</p>
+					</li>
+				</ul>
+				<p>In this situation, Zoom may use one microphone while another application uses the other.</p>
 
 
 
-    <h3>How Do I Fix It?</h3>
-    <ol>
-        <li>Open <strong>MicStatusPro Settings</strong></li>
-	<li>Click the <strong>Fix Microphone Settings</strong>.</li>
-        <li>Select the microphone you want to use.
-        <li>Click <strong>Set Default </strong> as shown below</li>
-        <li>Click <strong>OK</strong>.</li> 
-<img src="images/recording-tab.png"
-		     alt="Show Windows Recordin tab and Set Default option."
-		     class="doc-image">
-    </ol>
-	<p>MicStatusPro will automatically detect the fix within half a second and restore your solid border.</p>
-</section>
+				<h3>How Do I Fix It?</h3>
+				<ol>
+					<li>
+						Open <strong>MicStatusPro Settings</strong>
+					</li>
+					<li>
+						Click the <strong>Fix Microphone Settings</strong>.
+					</li>
+					<li>
+						Select the microphone you want to use.
+						<li>
+							Click <strong>Set Default </strong> as shown below
+						</li>
+						<li>
+							Click <strong>OK</strong>.
+						</li>
+						<img src="images/recording-tab.png"
+									 alt="Show Windows Recordin tab and Set Default option."
+									 class="doc-image">
+						</ol>
+				<p>MicStatusPro will automatically detect the fix within half a second and restore your solid border.</p>
+			</section>
 
-            <section id="hotkey-issues" class="content-card">
-                <h2>Hotkeys Not Working</h2>
-                <p>If your global toggle (CTRL + SHIFT + M) or Push-To-Talk keys are failing:</p>
-                <ul>
-                    <li><strong>Feature Enabled:</strong> Verify the "Enable Global Toggle" or "Enable Push-To-Talk Mode" checkboxes are selected in the Premium Features tab.
-<img src="images/keyboard-controls.png"
-		     alt=" the "Enable Global Toggle" or "Enable Push-To-Talk Mode" checkboxes are selected"
-		     class="doc-image">
-</li>
-                    <li><strong>Key Conflicts:</strong> Another application may be overriding the shortcut. Try changing the hotkey to a different combination. Test the hotkey while MicStatusPro is in focus. If it works there but not elsewhere, another application may be intercepting the shortcut.</li>
-                    <li><strong>Run as Administrator:</strong> Some full-screen games or elevated applications block keystrokes from background apps. Try running MicStatusPro as an Administrator.</li>
-                </ul>
-            </section>
+			<section id="hotkey-issues" class="content-card">
+				<h2>Hotkeys Not Working</h2>
+				<p>If your global toggle (CTRL + SHIFT + M) or Push-To-Talk keys are failing:</p>
+				<ul>
+					<li>
+						<strong>Feature Enabled:</strong> Verify the "Enable Global Toggle" or "Enable Push-To-Talk Mode" checkboxes are selected in the Premium Features tab.
+						<img src="images/keyboard-controls.png"
+									 alt=" the "Enable="" Global="" Toggle=""" or "Enable="" Push-To-Talk="" Mode=""
+									 class="doc-image">
+						</li>
+					<li>
+						<strong>Key Conflicts:</strong> Another application may be overriding the shortcut. Try changing the hotkey to a different combination. Test the hotkey while MicStatusPro is in focus. If it works there but not elsewhere, another application may be intercepting the shortcut.
+					</li>
+					<li>
+						<strong>Run as Administrator:</strong> Some full-screen games or elevated applications block keystrokes from background apps. Try running MicStatusPro as an Administrator.
+					</li>
+				</ul>
+			</section>
 
-            <section id="zoom-issues" class="content-card">
-                <h2>Zoom Sync Issues</h2>
-<p><strong>🔧 Quick Fix Checklist</strong>🔧</p>
-<ol>
-<li>Verify Zoom's Global Shortcut is enabled for Mute/Unmute My Audio (Alt+A).</li>
-<li>Verify Zoom Sync Mode is enabled in MicStatusPro.</li>
-<li>Review the Zoom Sync Modes guide for detailed instructions.</li>
-</ol>
+			<section id="zoom-issues" class="content-card">
+				<h2>Zoom Sync Issues</h2>
+				<p>
+					<strong>🔧 Quick Fix Checklist</strong>🔧
+				</p>
+				<ol>
+					<li>Verify Zoom's Global Shortcut is enabled for Mute/Unmute My Audio (Alt+A).</li>
+					<li>Verify Zoom Sync Mode is enabled in MicStatusPro.</li>
+					<li>Review the Zoom Sync Modes guide for detailed instructions.</li>
+				</ol>
 
-                <p>If MicStatusPro is not correctly syncing with Zoom's mute status:</p>
-                <ul>
-                    <li><strong>Enable Zoom Shortcuts:</strong> In Zoom Settings > Keyboard Shortcuts, ensure "Enable Global Shortcut" is checked for "Mute/Unmute My Audio".</li>
-<img src="images/zoom-global-shortcut.png"
-		     alt="Zoom Keyboard Shortcuts showing Global Shortcut enabled for Mute/Unmute My Audio"
-		     class="doc-image">
+				<p>If MicStatusPro is not correctly syncing with Zoom's mute status:</p>
+				<ul>
+					<li>
+						<strong>Enable Zoom Shortcuts:</strong> In Zoom Settings > Keyboard Shortcuts, ensure "Enable Global Shortcut" is checked for "Mute/Unmute My Audio".
+					</li>
+					<img src="images/zoom-global-shortcut.png"
+								 alt="Zoom Keyboard Shortcuts showing Global Shortcut enabled for Mute/Unmute My Audio"
+								 class="doc-image">
 
-                    <li><strong>Language Settings:</strong> MicStatusPro relies on English interface elements for some advanced syncing. Check your Zoom language settings.</li>
-                    <li><strong>Sync Mode:</strong> Review the <a href="zoom-sync-modes.html">Zoom Sync Modes guide</a> to ensure you have the correct mode selected for your workflow.</li>
-                </ul>
-<div class="related-articles">
-    <strong>Learn More:</strong>
-    <a href="zoom-sync-modes.html">Zoom Sync Guide</a> •
-    <a href="zoom-limitations.html">Zoom Limitations & Workarounds</a>
-</div>
+						<li>
+							<strong>Language Settings:</strong> MicStatusPro relies on English interface elements for some advanced syncing. Check your Zoom language settings.
+						</li>
+						<li>
+							<strong>Sync Mode:</strong> Review the <a href="zoom-sync-modes.html">Zoom Sync Modes guide</a> to ensure you have the correct mode selected for your workflow.
+						</li>
+					</ul>
+				<div class="related-articles">
+					<strong>Learn More:</strong>
+					<a href="zoom-sync-modes.html">Zoom Sync Guide</a> •
+					<a href="zoom-limitations.html">Zoom Limitations & Workarounds</a>
+				</div>
 
-            </section>
+			</section>
 
-            <section id="support" class="content-card">
-                <h2>How to Get Support</h2>
-                <p>If issues persist after reviewing this guide, please reach out to our technical support team for further assistance.</p>
-                <p><strong>Email:</strong> <a href="mailto:contact@micstatuspro.com?subject=Technical Support Request">contact@micstatuspro.com</a></p>
-            </section>
+			<section id="support" class="content-card">
+				<h2>How to Get Support</h2>
+				<p>If issues persist after reviewing this guide, please reach out to our technical support team for further assistance.</p>
+				<p>
+					<strong>Email:</strong>
+					<a href="mailto:support@micstatuspro.com?subject=MicStatusPro%20Troubleshooting%20Request">support@micstatuspro.com</a>
+				</p>
+			</section>
 
-        </main>
-    </div>
+		</main>
+	</div>
 
-    <!-- Global Footer -->
+	<!-- Global Footer -->
     <footer class="app-footer">
         <ul>
             <li><a href="../index.html">Home</a></li>
@@ -400,14 +535,60 @@
             <li><a href="documentation.html">Documentation Hub</a></li>
         </ul>
     </footer>
-<script>
-	document.querySelectorAll('.sidebar-nav a').forEach(link => {
-    link.addEventListener('click', function() {
-        document.querySelectorAll('.sidebar-nav a')
-            .forEach(a => a.classList.remove('active'));
-        this.classList.add('active');
-  	  });
-	});
-</script>
+	<script>
+		document.querySelectorAll('.sidebar-nav a').forEach(link => {
+		link.addEventListener('click', function() {
+		document.querySelectorAll('.sidebar-nav a')
+		.forEach(a => a.classList.remove('active'));
+		this.classList.add('active');
+		});
+		});
+	</script>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+
+		// Copy sidebar nav into mobile TOC
+		const sidebarNav = document.querySelector('.sidebar-nav');
+		const mobileToc = document.getElementById('mobile-toc');
+
+		if (sidebarNav && mobileToc) {
+		mobileToc.innerHTML = sidebarNav.innerHTML;
+		}
+
+		// Open panel
+		document.getElementById('toc-button')
+		.addEventListener('click', () => {
+		document.getElementById('toc-panel')
+		.classList.add('open');
+		});
+
+		// Close panel
+		document.getElementById('toc-close')
+		.addEventListener('click', () => {
+		document.getElementById('toc-panel')
+		.classList.remove('open');
+		});
+
+		// Close after user taps a link
+		mobileToc.addEventListener('click', (e) => {
+		if (e.target.tagName === 'A') {
+		document.getElementById('toc-panel')
+		.classList.remove('open');
+		}
+		});
+		});
+	</script>
+	<button id="toc-button" class="toc-fab">
+		📑 Contents
+	</button>
+
+	<div id="toc-panel" class="toc-panel">
+		<div class="toc-header">
+			<strong>On This Page</strong>
+			<button id="toc-close">✕</button>
+		</div>
+
+		<nav id="mobile-toc"></nav>
+	</div>
 </body>
 </html>
